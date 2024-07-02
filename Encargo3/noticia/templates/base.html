@@ -34,7 +34,7 @@
                           <a class="nav-link text-body small" href="#">5 de Julio, 2024</a>
                       </li>
                       <li class="nav-item border-right border-secondary">
-                          <a class="nav-link text-body small" href="#">Contacto</a>
+                          <a class="nav-link text-body small" href="{% url 'contactanos'%}">Contacto</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link text-body small" href="#">Iniciar Sesion</a>
@@ -132,74 +132,63 @@
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Noticias Populares</h5>
             <div class="mb-3">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'actualidad'%}">Actualidad</a>
+                    <a class="text-body" href=""><small>4 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaEncerrona'%}">Habla víctima de encerrona tras su matrimonio...</a>
             </div>
             <div class="mb-3">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'deporte'%}">Deportes</a>
+                    <a class="text-body" href=""><small>3 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaBasketball'%}">Sancion de 4 partidos para beverley...</a>
             </div>
             <div class="">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'economia'%}">Economia</a>
+                    <a class="text-body" href=""><small>5 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaMonroe'%}">Multimillonarios compraron casa de Marilyn Monroe...</a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categorias</h5>
             <div class="m-n1">
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Entertainment</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Travel</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Lifestyle</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
+                <a href="{% url 'home'%}" class="btn btn-sm btn-secondary m-1">Inicio</a>
+                <a href="{% url 'actualidad'%}" class="btn btn-sm btn-secondary m-1">Actualidad</a>
+                <a href="{% url 'economia'%}" class="btn btn-sm btn-secondary m-1">Economia</a>
+                <a href="{% url 'deporte'%}" class="btn btn-sm btn-secondary m-1">Deportes</a>
+                <a href="{% url 'contactanos'%}" class="btn btn-sm btn-secondary m-1">Contacto NewCL</a>
+
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
-            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Fotos</h5>
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-2.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-3.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-4.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-5.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
-                </div>
-            </div>
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Tags</h5>
+                <div class="m-n1">
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Robos</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Política</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Economía</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Deportes</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Tecnología</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Cultura</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Salud</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Educación</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Internacional</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Ciencia</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#MedioAmbiente</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Entretenimiento</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Opinión</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Negocios</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Viajes</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Gastronomía</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Moda</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Autos</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Vivienda</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Emprendimiento</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Finanzas</a>
+
+                
         </div>
     </div>
 </div>
