@@ -8,106 +8,129 @@
 {% block content %}
 <br><br><br><br>
 
-      <!---INICIO CARRUSEL-->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="{% static 'img/foto-carrusel-deporte.jpg' %}" class="d-block w-100" alt="...">
+
+  <!-- Main News Slider Start -->
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-7 px-0">
+            <div class="owl-carousel main-carousel position-relative">
+                <div class="position-relative overflow-hidden" style="height: 500px;">
+                    <img class="img-fluid h-100" src="{% static 'img/portonazo2.jpg' %}" style="object-fit: cover;">
+                    <div class="overlay">
+                        <div class="mb-2">
+                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="{% url 'actualidad'%}">Actualidad</a>
+                            <a class="text-white" href="">3 de Julio, 2024</a>
+                        </div>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{% url 'noticiaEncerrona'%}">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO...</a>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                  <img src="{% static 'img/foto-carrusel-economia.jpg' %}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="{% static 'img/foto-carrusel-pdi.webp' %}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/foto-portonazo.webp' %}" class="d-block w-100" alt="...">
+
+                  <div class="position-relative overflow-hidden" style="height: 500px;">
+                      <img class="img-fluid h-100" src="{% static 'img/noticia2-inicio.webp' %}" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="{% url 'actualidad'%}">Actualidad</a>
+                              <a class="text-white" href="">4 de Julio, 2023</a>
+                          </div>
+                          <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{% url 'noticiaLula'%}">LULA RETRASA SU VISITA A CHILE...</a>
+                      </div>
+                  </div>
+
+                  <div class="position-relative overflow-hidden" style="height: 500px;">
+                      <img class="img-fluid h-100" src="{% static 'img/Noticia3-switch.webp' %}" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="{% url 'actualidad'%}">Actualidad</a>
+                              <a class="text-white" href="">5 de Julio, 2024</a>
+                          </div>
+                          <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{% url 'noticiaNintendo'%}">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA...</a>
+                      </div>
                   </div>
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
           </div>
+<!-- Cards pequeñas -->
+        <div class="col-lg-5 px-0">
+            <div class="row mx-0">
+                <div class="col-md-6 px-0">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <img class="img-fluid w-100 h-100" src="{% static 'img/Arsenal.jpg' %}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Business</a>
+                                <a class="text-white" href=""><small></small>4 de Julio, 2024</a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{% url 'noticiaArsenal'%}">Victoria del Arsenal en old Traford...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <img class="img-fluid w-100 h-100" src="{% static 'img/elidecaso.webp ' %}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Business</a>
+                                <a class="text-white" href=""><small></small>3 de Julio, 2024</a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{% url 'noticiaeli'%}">ELI DE CASO REVELÓ COMPLEJO MOMENTO ECONÓMICO...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <img class="img-fluid w-100 h-100" src="{% static 'img/Alejandro-Tabilo-1.jpg ' %}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Business</a>
+                                <a class="text-white" href=""><small></small>2 de Julio, 2024</a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{% url 'noticiaTenis'%}">ALEJANDRO TABILO VENCE A NOVAK DJOKOVIC...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <img class="img-fluid w-100 h-100" src="{% static 'img/basketboll.webp' %}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Business</a>
+                                <a class="text-white" href=""><small></small>1 de Julio, 2024</a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{% url 'noticiaBasketball'%}">SANCIÓN DE CUATRO PARTIDOS PARA BEVERLEY...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      
-    <script>
-        // seleccionar carr
-        var carousel = document.getElementById('carouselExampleIndicators');
-        // intervalo
-        setInterval(function () {
-            // cambiar foto
-            $(carousel).carousel('next');
-        }, 3000); // 3000 milisegundos = 3 segundos
-    </script>
-
-    <br/>
-    <br/>
-    <br/>
-
-    <div class="container">
-      <div class="latest-news-container">
-        <h2 class="mt-4">Últimas Noticias</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <a href="{% url 'noticiaEncerrona' %}">
-                <img src="{% static 'img/foto-portonazo.webp' %}" class="card-img-top" alt="...">
-              </a>            
-              <div class="card-body">
-                <p class="card-text">Habla víctima de encerrona tras su matrimonio...</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <a href="Noticia de tenis.html">
-              <img src="{% static 'img/Alejandro-Tabilo-1.jpg' %}" class="card-img-top" alt="Tenis">
-              </a>
-              <div class="card-body">
-                <p class="card-text">Historico resultado en Roma, Alejandro tabilo vence a Novak Djokovic</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <a href="noticia de monroe.html">
-              <img src="{% static 'img/Multimillonarios.webp' %}" class="card-img-top" alt="Tenis">
-              </a>
-              <div class="card-body">
-                <p class="card-text">Multimillonarios compraron casa de Marilyn Monroe...</p>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
     </div>
-    
-    <script>
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        card.addEventListener('mouseover', () => {
-          card.style.transform = 'scale(1.1)';
-        });
-        card.addEventListener('mouseout', () => {
-          card.style.transform = 'scale(1)';
-        });
-      });
-    </script>
+</div>
+<!-- Main News Slider End -->
+
+<!-- Breaking News Start -->
+<div class="container-fluid bg-dark py-3 mb-3">
+  <div class="container">
+      <div class="row align-items-center bg-dark">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">Ultimas Noticias</div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
+                      style="width: calc(100% - 170px); padding-right: 90px;">
+                      <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Breaking News End -->
+
+
+
 {% endblock %}

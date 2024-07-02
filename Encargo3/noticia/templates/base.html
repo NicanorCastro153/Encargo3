@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     {% load static%}
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>NewCL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <script src="{% static 'js/validaciones.js' %}" ></script>
@@ -15,8 +16,7 @@
 
 
 
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet' %}">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
@@ -24,7 +24,7 @@
     
 </head>
 <body>
-      <!-- Topbar Staraaat -->
+      <!-- Topbar -->
     <div class="container-fluid d-none d-lg-block">
       <div class="row align-items-center bg-dark px-lg-5">
           <div class="col-lg-9">
@@ -78,7 +78,7 @@
           </div>
       </div>
   </div>
-  <!-- Navbar Start -->
+  <!-- Navbar-->
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
@@ -106,12 +106,12 @@
 
 
 
-<!-- en este espacio va lo que lleva cada pagina-->
+<!-- cuerpo de cada pag-->
 
 
 
   {% endblock %}
-  <!-- Footer Start -->
+  <!-- Footer -->
   <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
     <div class="row py-4">
         <div class="col-lg-3 col-md-6 mb-5">
@@ -152,6 +152,9 @@
                 <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaMonroe'%}">Multimillonarios compraron casa de Marilyn Monroe...</a>
             </div>
         </div>
+
+
+<!-- Categorias -->
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categorias</h5>
             <div class="m-n1">
@@ -163,6 +166,8 @@
 
             </div>
         </div>
+
+<!-- TAGS -->
         <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="mb-4 text-white text-uppercase font-weight-bold">Tags</h5>
                 <div class="m-n1">
@@ -193,7 +198,14 @@
     </div>
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
-    <p class="m-0 text-center">&copy; <a href="#">NewsCL</a>. All Rights Reserved. 
+    <p class="m-0 text-center">&copy; <a href="#">NewsCL</a>. Todos los derechos reservados. 
+
+
+
+<!-- Otros -->
+
+
+
 
 
 <!-- Back to Top -->
@@ -209,7 +221,7 @@
 
 
 <!-- Template Javascript -->
-<script src="js/main.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

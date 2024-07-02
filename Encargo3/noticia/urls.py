@@ -18,4 +18,5 @@ urlpatterns = [
     path('noticiaNintendo',views.noticiaNintendo, name='noticiaNintendo'),
     path('noticiaTenis',views.noticiaTenis, name='noticiaTenis'),
     path('noticiaLula',views.noticiaLula, name='noticiaLula'),
+    path('noticiaEli',views.noticiaeli, name='noticiaeli'),
 ]
