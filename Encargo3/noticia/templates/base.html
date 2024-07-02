@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
 
@@ -82,19 +82,18 @@
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="m-0 display-4 text-uppercase text-primary">Biz<span class="text-white font-weight-normal">News</span></h1>
+            <h1 class="m-0 display-4 text-uppercase text-primary">CL<span class="text-white font-weight-normal">News</span></h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <a href="{% templates 'menu/home.html' %}" class="nav-item nav-link active">Home</a>
-                <a href="category.html" class="nav-item nav-link">Actualidad</a>
-                <a href="single.html" class="nav-item nav-link">Economia</a>
-                <a href="single.html" class="nav-item nav-link">Deportes</a>
-                <a href="single.html" class="nav-item nav-link">Contactanos</a>
-
+                <a href="{% url 'home'%}" class="nav-item nav-link active">Home</a>
+                <a href="{% url 'actualidad'%}" class="nav-item nav-link">Actualidad</a>
+                <a href="{% url 'economia'%}" class="nav-item nav-link">Economia</a>
+                <a href="{% url 'deporte'%}" class="nav-item nav-link">Deportes</a>
+                <a href="{% url 'contactanos'%}" class="nav-item nav-link">Contactanos</a>
                 </div>
             </div>
             
