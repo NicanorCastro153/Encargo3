@@ -43,3 +43,6 @@ def noticiaTenis(request):
 def noticiaLula(request):
     return render(request, 'noticias/noticiaLula.html')
 
+def noticiaeli(request):
+    return render(request, 'noticias/noticiaEli.html')
+

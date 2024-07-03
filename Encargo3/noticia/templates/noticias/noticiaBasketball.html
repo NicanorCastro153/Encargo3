@@ -3,36 +3,166 @@
 {% load static %}
 
 {% block title %}
-    Actualidad
+    Deportes
 {% endblock %}
 
 {% block content %}
+<!-- Tendencias -->
+<div class="container-fluid mt-5 mb-3 pt-3">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="news-container">
-        <h1 class="centrar">Sanción de cuatro partidos para Patrick Beverley por dar un balonazo en la cabeza a un aficionado &#127936;</h1>
-      <br>
-      <br>
-      <br>
-        <img class="container video" src="Imagenes/basketboll.webp" alt="basketboll" height="500" width="700">
-    
-      <br>
-      <br>
-      <br>
-    
-    
-      <p >En un giro impactante durante el último encuentro de la temporada regular de la NBA, Patrick Beverley, jugador de los Minnesota Timberwolves, ha sido sancionado con cuatro partidos tras lanzar un balonazo a la cabeza de un aficionado.
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="section-title border-right-0 mb-0" style="width: 180px;">
+                      <h4 class="m-0 text-uppercase font-weight-bold">Tendencia</h4>
+                  </div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
+                      style="width: calc(100% - 180px); padding-right: 100px;">
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaEncerrona'%}">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaNintendo'%}">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- fin tendencias -->
 
-        El incidente tuvo lugar durante el tercer cuarto del partido entre los Timberwolves y los Oklahoma City Thunder, cuando Beverley, tras perder el balón fuera de la cancha, reaccionó de manera violenta y arrojó el balón directamente hacia un espectador en las primeras filas.
+<!-- noticia -->
+<div class="container-fluid">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <!-- inicio noticia -->
+              <div class="position-relative mb-3">
+                  <img class="img-fluid w-100" src="{% static 'img/basketboll.webp' %}" style="object-fit: cover;">
+                  <div class="bg-white border border-top-0 p-4">
+                      <div class="mb-3">
+                          <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                            href="{% url 'deporte'%}">Deporte</a>
+                          <a class="text-body" href="">5 de Julio, 2024</a>
+                      </div>
+                      <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">Sanción de cuatro partidos para Patrick Beverley por dar un balonazo en la cabeza a un aficionado 🏀</h1>
+                      <p >En un giro impactante durante el último encuentro de la temporada regular de la NBA, Patrick Beverley, jugador de los Minnesota Timberwolves, ha sido sancionado con cuatro partidos tras lanzar un balonazo a la cabeza de un aficionado.</p>
+
+                        El incidente tuvo lugar durante el tercer cuarto del partido entre los Timberwolves y los Oklahoma City Thunder, cuando Beverley, tras perder el balón fuera de la cancha, reaccionó de manera violenta y arrojó el balón directamente hacia un espectador en las primeras filas.</p>
+                        
+                        La acción fue captada por las cámaras y generó una ola de críticas hacia Beverley, tanto de los aficionados como de la comunidad del baloncesto. La NBA rápidamente tomó medidas disciplinarias, anunciando una suspensión de cuatro partidos para el jugador como consecuencia de su comportamiento.</p>
+                        
+                        Esta sanción significa que Beverley se perderá los primeros cuatro partidos de los Timberwolves en los playoffs, lo que representa un golpe significativo para el equipo en un momento crucial de la temporada.
+                        
+                        La NBA ha reiterado su compromiso con la seguridad de los espectadores y ha recordado a los jugadores la importancia de mantener la compostura en situaciones de alta presión.</p>
+                        <BR>
+                        <BR>
+
+                        
+
+                  </div>
+                  <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                      <div class="d-flex align-items-center">
+                          <img class="rounded-circle mr-2" src="{% static 'img/rene.jpg' %}" width="25" height="25" alt="">
+                          <span>Rene Puentes</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <span class="ml-3"><i class="far fa-eye mr-2"></i>1500</span>
+                          <span class="ml-3"><i class="far fa-comment mr-2"></i>90</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
         
-        La acción fue captada por las cámaras y generó una ola de críticas hacia Beverley, tanto de los aficionados como de la comunidad del baloncesto. La NBA rápidamente tomó medidas disciplinarias, anunciando una suspensión de cuatro partidos para el jugador como consecuencia de su comportamiento.
+<!-- fin noticia -->
         
-        Esta sanción significa que Beverley se perderá los primeros cuatro partidos de los Timberwolves en los playoffs, lo que representa un golpe significativo para el equipo en un momento crucial de la temporada.
-        
-        La NBA ha reiterado su compromiso con la seguridad de los espectadores y ha recordado a los jugadores la importancia de mantener la compostura en situaciones de alta presión.</p>
-        <BR>
-        <BR>
-    </div>      
+<div class="col-lg-4">
+  <!-- redes -->
+  <div class="mb-3">
+      <div class="section-title mb-0">
+          <h4 class="m-0 text-uppercase font-weight-bold">¡Síguenos!</h4>
+      </div>
+      <div class="bg-white border border-top-0 p-3">
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+              <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">6.241 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+              <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15.000 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15,645 Followers</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Suscriptores</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- anuncios :D -->
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+        <a href=""><img class="img-fluid" src="{% static 'img/publicidad1.webp' %}" alt=""></a>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+      <a href=""><img class="img-fluid" src="{% static 'img/publicidad2.jpg' %}" alt=""></a>
+  </div>
+</div>
+<!-- fin anuncios -->
+
+
+<!-- tagsss -->
+
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div class="d-flex flex-wrap m-n1">
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Actualidad</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Economía</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Deportes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Tecnología</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cultura</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Salud</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Internacional</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Medio Ambiente</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Opinión</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Política</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Ciencia</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Entretenimiento</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Viajes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Educación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Negocios</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Finanzas</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Estilo de Vida</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Investigación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cine</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Música</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+  <!-- fin de tags -->
+
+
+ 
+
+
+
+
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      
 {% endblock %}
+
+
+
+ 
   

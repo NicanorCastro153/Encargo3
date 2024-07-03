@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     {% load static%}
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>NewCL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <script src="{% static 'js/validaciones.js' %}" ></script>
@@ -10,13 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
 
 
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet' %}">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
@@ -24,7 +24,7 @@
     
 </head>
 <body>
-      <!-- Topbar Staraaat -->
+      <!-- Topbar -->
     <div class="container-fluid d-none d-lg-block">
       <div class="row align-items-center bg-dark px-lg-5">
           <div class="col-lg-9">
@@ -34,7 +34,7 @@
                           <a class="nav-link text-body small" href="#">5 de Julio, 2024</a>
                       </li>
                       <li class="nav-item border-right border-secondary">
-                          <a class="nav-link text-body small" href="#">Contacto</a>
+                          <a class="nav-link text-body small" href="{% url 'contactanos'%}">Contacto</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link text-body small" href="#">Iniciar Sesion</a>
@@ -73,27 +73,24 @@
                   <h1 class="m-0 display-4 text-uppercase text-primary">News<span class="text-secondary font-weight-normal">CL</span></h1>
               </a>
           </div>
-          <div class="col-lg-8 text-center text-lg-right">
-              <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
-          </div>
       </div>
   </div>
-  <!-- Navbar Start -->
+  <!-- Navbar-->
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="m-0 display-4 text-uppercase text-primary">Biz<span class="text-white font-weight-normal">News</span></h1>
+            <h1 class="m-0 display-4 text-uppercase text-primary">CL<span class="text-white font-weight-normal">News</span></h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="category.html" class="nav-item nav-link">Actualidad</a>
-                <a href="single.html" class="nav-item nav-link">Economia</a>
-                <a href="single.html" class="nav-item nav-link">Deportes</a>
-                <a href="single.html" class="nav-item nav-link">Contactanos</a>
+                <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                <a href="{% url 'actualidad' %}" class="nav-item nav-link {% if request.path == '/actualidad/' %}active{% endif %}">Actualidad</a>
+                <a href="{% url 'economia' %}" class="nav-item nav-link {% if request.path == '/economia/' %}active{% endif %}">Economía</a>
+                <a href="{% url 'deporte' %}" class="nav-item nav-link {% if request.path == '/deporte/' %}active{% endif %}">Deportes</a>
+                <a href="{% url 'contactanos' %}" class="nav-item nav-link {% if request.path == '/contactanos/' %}active{% endif %}">Contáctanos</a>
                 </div>
             </div>
             
@@ -106,19 +103,19 @@
 
 
 
-<!-- en este espacio va lo que lleva cada pagina-->
+<!-- cuerpo de cada pag-->
 
 
 
   {% endblock %}
-  <!-- Footer Start -->
+  <!-- Footer -->
   <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
     <div class="row py-4">
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Contactanos</h5>
             <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Calle 123, Santiago, Chile.</p>
             <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>+56 623 623 62</p>
-            <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>NewCl_Contacto.com</p>
+            <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>NewCL_Contacto.com</p>
             <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Siguenos</h6>
             <div class="d-flex justify-content-start">
                 <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -132,79 +129,80 @@
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Noticias Populares</h5>
             <div class="mb-3">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'actualidad'%}">Actualidad</a>
+                    <a class="text-body" href=""><small>4 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaEncerrona'%}">Habla víctima de encerrona tras su matrimonio...</a>
             </div>
             <div class="mb-3">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'deporte'%}">Deportes</a>
+                    <a class="text-body" href=""><small>3 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaBasketball'%}">Sancion de 4 partidos para beverley...</a>
             </div>
             <div class="">
                 <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{% url 'economia'%}">Economia</a>
+                    <a class="text-body" href=""><small>5 de Julio, 2024</small></a>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                <a class="small text-body text-uppercase font-weight-medium" href="{% url 'noticiaMonroe'%}">Multimillonarios compraron casa de Marilyn Monroe...</a>
             </div>
         </div>
+
+
+<!-- Categorias -->
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categorias</h5>
             <div class="m-n1">
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Entertainment</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Travel</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Lifestyle</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
+                <a href="{% url 'home'%}" class="btn btn-sm btn-secondary m-1">Inicio</a>
+                <a href="{% url 'actualidad'%}" class="btn btn-sm btn-secondary m-1">Actualidad</a>
+                <a href="{% url 'economia'%}" class="btn btn-sm btn-secondary m-1">Economia</a>
+                <a href="{% url 'deporte'%}" class="btn btn-sm btn-secondary m-1">Deportes</a>
+                <a href="{% url 'contactanos'%}" class="btn btn-sm btn-secondary m-1">Contacto NewCL</a>
+
             </div>
         </div>
+
+<!-- TAGS -->
         <div class="col-lg-3 col-md-6 mb-5">
-            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Fotos</h5>
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-2.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-3.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-4.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-5.jpg" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
-                </div>
-            </div>
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Tags</h5>
+                <div class="m-n1">
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Robos</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Política</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Economía</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Deportes</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Tecnología</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Cultura</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Salud</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Educación</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Internacional</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Ciencia</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#MedioAmbiente</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Entretenimiento</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Opinión</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Negocios</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Viajes</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Gastronomía</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Moda</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Autos</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Vivienda</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Emprendimiento</a>
+                    <a href="" class="btn btn-sm btn-secondary m-1">#Finanzas</a>
+
+                
         </div>
     </div>
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
-    <p class="m-0 text-center">&copy; <a href="#">NewsCL</a>. All Rights Reserved. 
+    <p class="m-0 text-center">&copy; <a href="#">NewsCL</a>. Todos los derechos reservados. 
+
+
+
+<!-- Otros -->
+
+
+
 
 
 <!-- Back to Top -->
@@ -220,7 +218,7 @@
 
 
 <!-- Template Javascript -->
-<script src="js/main.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
