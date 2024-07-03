@@ -6,46 +6,159 @@
     Actualidad
 {% endblock %}
 {% block content %}
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="news-container">
-              <!-- aqui empieza la noticia -->
-              <h1>HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</h1>
-              <br>
-              <h2 class="cursiva texto-pequeno">
-                Carlos Pinela, en una carta a El Mercurio, manifestó lo que le dejó ese violento hecho. 
-                “Cuando se vive el horror de poder perder al núcleo familiar, y uno busca respuestas, 
-                solo se escucha el eco de otras personas que han pasado por lo mismo, y uno se pregunta 
-                sin esperanza, ¿por qué siguen creciendo los casos y la magnitud?”, expresó.
-              </h2>
-              <br>
-              <img src="Imagenes/foto-portonazo.webp" alt="Imagen de la noticia" class="news-image img-fluid">
-              <br><br>
-              <p>“Espero, alguna vez, vencer este miedo”. Bajo este título Carlos Pinela víctima de una encerrona tras la celebración de su fiesta de matrimonio durante el fin de semana, alzó la voz a través de una carta a El Mercurio, y explicó su temor al aumento de la delincuencia y al conflicto legislativo en materia de seguridad.
-                <br><br>
-                El hecho ocurrió la madrugada del domingo, cuando Pinela y su esposa se dirigían en su vehículo a su domicilio, ubicado en la comuna de Peñalolén. En ese momento, fueron interceptados por un segundo móvil, desde el cual tres antisociales, quienes intentaron robar el automóvil de las víctimas.
-                <br><br>
-                Aunque los delincuentes no pudieron concretar el ilícito, el matrimonio sufrió lesiones por las agresiones con cuchillos. La mujer fue hospitalizada debido a las heridas de carácter grave, mientras que Pinela sufrió lesiones leves.
-                <br><br>
-                Pinela en la misiva señala que “no quería dar declaraciones por el asalto del que fuimos víctima después de mi matrimonio. No quería hablar. Por muchas razones. Una de las principales es que este país ya habla lo suficiente de delincuencia, y aun así sigue escalando la violencia”.
-                <br><br>
-                “Cuando se vive el horror de poder perder al núcleo familiar, y uno busca respuestas, solo se escucha el eco de otras personas que han pasado por lo mismo, y uno se pregunta sin esperanza, ¿por qué siguen creciendo los casos y la magnitud?”, sostuvo.
-                <br><br>
-                “La legislación en temas de seguridad en Chile se siente que avanza a punta de leyes con nombres propios. Yo no quiero ver la ley con nombre de mi esposa, hermana o mamá, de mis conocidos o no conocidos, que impulse una agenda que proteja la vida de inocentes. Los nombres de leyes no pueden avanzar en función de muertos; no es un cementerio ni una morgue”, agregó, consignó Emol.
-                <br><br>
-                “Me da miedo pensar que el país llegó al punto donde los muertos impulsen más ideas que los vivos”, señaló.
-                <br><br>
-                Pinela remarcó: “Siempre he sido optimista, pero después de este asalto me preocupa que seamos un país de mártires circunstanciales, y que mi potencial muerte sea solo una excusa política”.
-                <br><br>
-                Añadió que “me da miedo pensar que como país estamos tan polarizados que las personas que deberían hacer algo en seguridad no se puedan poner de acuerdo en un terror tan común y transversal”.
-                <br><br>
-                “Espero algún día vencer este miedo y recuperar la esperanza. De momento, me enfocaré en cuidar a mi familia, que se mejoren las tres mujeres más importantes de mi vida con las que pasé esto, y sanar las puñaladas que sufrimos”, completó.
-              </p>
-            </div>
+
+<!-- Breaking News Start -->
+<div class="container-fluid mt-5 mb-3 pt-3">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="section-title border-right-0 mb-0" style="width: 180px;">
+                      <h4 class="m-0 text-uppercase font-weight-bold">Tranding</h4>
+                  </div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
+                      style="width: calc(100% - 180px); padding-right: 100px;">
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
+  </div>
+</div>
+<!-- Breaking News End -->
+
+<!-- News With Sidebar Start -->
+<div class="container-fluid">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <!-- News Detail Start -->
+              <div class="position-relative mb-3">
+                  <img class="img-fluid w-100" src="{% static 'img/portonazo2.jpg' %}" style="object-fit: cover;">
+                  <div class="bg-white border border-top-0 p-4">
+                      <div class="mb-3">
+                          <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                            href="{% url 'actualidad'%}">Actualidad</a>
+                          <a class="text-body" href="">3 de Julio, 2024</a>
+                      </div>
+                      <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</h1>
+                      <p>Carlos Pinela, en una carta a El Mercurio, manifestó lo que le dejó ese violento hecho. 
+                        “Cuando se vive el horror de poder perder al núcleo familiar, y uno busca respuestas, 
+                        solo se escucha el eco de otras personas que han pasado por lo mismo, y uno se pregunta 
+                        sin esperanza, ¿por qué siguen creciendo los casos y la magnitud?”, expresó.</p>
+                        <p>“Espero, alguna vez, vencer este miedo”. Bajo este título Carlos Pinela víctima de una encerrona tras la celebración de su fiesta de matrimonio durante el fin de semana, alzó la voz a través de una carta a El Mercurio, y explicó su temor al aumento de la delincuencia y al conflicto legislativo en materia de seguridad.
+                          Aunque los delincuentes no pudieron concretar el ilícito, el matrimonio sufrió lesiones por las agresiones con cuchillos. La mujer fue hospitalizada debido a las heridas de carácter grave, mientras que Pinela sufrió lesiones leves.
+                        <br><br>
+                        Pinela en la misiva señala que “no quería dar declaraciones por el asalto del que fuimos víctima después de mi matrimonio. No quería hablar. Por muchas razones. Una de las principales es que este país ya habla lo suficiente de delincuencia, y aun así sigue escalando la violencia”.
+                        <br><br>
+                        “Cuando se vive el horror de poder perder al núcleo familiar, y uno busca respuestas, solo se escucha el eco de otras personas que han pasado por lo mismo, y uno se pregunta sin esperanza, ¿por qué siguen creciendo los casos y la magnitud?”, sostuvo.
+                        <br><br>
+                        “La legislación en temas de seguridad en Chile se siente que avanza a punta de leyes con nombres propios. Yo no quiero ver la ley con nombre de mi esposa, hermana o mamá, de mis conocidos o no conocidos, que impulse una agenda que proteja la vida de inocentes. Los nombres de leyes no pueden avanzar en función de muertos; no es un cementerio ni una morgue”, agregó, consignó Emol.
+                        <br><br>
+                        “Me da miedo pensar que el país llegó al punto donde los muertos impulsen más ideas que los vivos”, señaló.
+                        <br><br>
+                        Pinela remarcó: “Siempre he sido optimista, pero después de este asalto me preocupa que seamos un país de mártires circunstanciales, y que mi potencial muerte sea solo una excusa política”.
+                        <br><br>
+                        Añadió que “me da miedo pensar que como país estamos tan polarizados que las personas que deberían hacer algo en seguridad no se puedan poner de acuerdo en un terror tan común y transversal”.
+                        <br><br>
+                        “Espero algún día vencer este miedo y recuperar la esperanza. De momento, me enfocaré en cuidar a mi familia, que se mejoren las tres mujeres más importantes de mi vida con las que pasé esto, y sanar las puñaladas que sufrimos”, completó.
+                      </p>
+
+                  </div>
+                  <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                      <div class="d-flex align-items-center">
+                          <img class="rounded-circle mr-2" src="{% static 'img/rene.jpg' %}" width="25" height="25" alt="">
+                          <span>Rene Puentes</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <span class="ml-3"><i class="far fa-eye mr-2"></i>2040</span>
+                          <span class="ml-3"><i class="far fa-comment mr-2"></i>130</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        
+<!-- News Detail End -->
+        
+<div class="col-lg-4">
+  <!-- Social Follow Start -->
+  <div class="mb-3">
+      <div class="section-title mb-0">
+          <h4 class="m-0 text-uppercase font-weight-bold">¡Síguenos!</h4>
+      </div>
+      <div class="bg-white border border-top-0 p-3">
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+              <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">6.241 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+              <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15.000 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15,645 Followers</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Suscriptores</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- Ads Start -->
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+        <a href=""><img class="img-fluid" src="{% static 'img/publicidad1.webp' %}" alt=""></a>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+      <a href=""><img class="img-fluid" src="{% static 'img/publicidad2.jpg' %}" alt=""></a>
+  </div>
+</div>
+<!-- Ads End -->
+
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div class="d-flex flex-wrap m-n1">
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Actualidad</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Economía</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Deportes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Tecnología</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cultura</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Salud</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Internacional</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Medio Ambiente</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Opinión</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Política</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Ciencia</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Entretenimiento</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Viajes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Educación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Negocios</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Finanzas</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Estilo de Vida</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Investigación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cine</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Música</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+  <!-- Social Follow End -->
+
+
+  
+
+
 
 <!-- jQuery, Popper.js, Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
