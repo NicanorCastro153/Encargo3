@@ -1,4 +1,5 @@
-from .models import Asunto, MensajeUsuario
+from .models import Asunto, MensajeUsuario, TipoNoticia, Noticia
+from django import forms
 from django.forms import ModelForm
 
 class AsuntoForm(ModelForm):
@@ -9,4 +10,14 @@ class AsuntoForm(ModelForm):
 class MensajeUsuarioForm(ModelForm):
     class Meta:
         model = MensajeUsuario
-        fields= "__all__"
+        fields= "__all__" # "__all__" trae todas las columnas del modelo: nombre, correo, asunto, motivo, etc
+
+class TipoNoticiaForm(ModelForm):
+    class Meta:
+        model = TipoNoticia
+        fields= "__all__" 
+
+class NoticiaForm(ModelForm):
+    class Meta:
+        model = Noticia
+        fields= "__all__"      

@@ -19,4 +19,10 @@ urlpatterns = [
     path('noticiaTenis',views.noticiaTenis, name='noticiaTenis'),
     path('noticiaLula',views.noticiaLula, name='noticiaLula'),
     path('noticiaEli',views.noticiaeli, name='noticiaeli'),
+    #admin
+    path('AgregarNoticia',views.AgregarNoticia, name='AgregarNoticia'),
+    path('AgregarTipoNoticia',views.AgregarTipoNoticia, name='AgregarTipoNoticia'),
+    path('AgregarAsunto',views.AgregarAsunto, name='AgregarAsunto'),
+    path('Contactanos',views.Contactanos, name='Contactanos'),
+    
 ]

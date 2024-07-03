@@ -1,5 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
+from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
+from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
+0
 # Create your views here.
 
 # opciones navbar
@@ -46,3 +50,46 @@ def noticiaLula(request):
 def noticiaeli(request):
     return render(request, 'noticias/noticiaEli.html')
 
+def AgregarNoticia(request):
+    if request.method == 'POST':
+        form = NoticiaForm(request.POST, request.FILES)  # Asegúrate de incluir request.FILES para manejar archivos
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('AgregarNoticia.html')
+    else:
+        form = NoticiaForm()
+
+    return render(request, 'admin/AgregarNoticia.html', {'form': form})
+
+def AgregarTipoNoticia(request):
+    if request.method == 'POST':
+        form = TipoNoticiaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('AgregarTipoNoticia.html')
+    else:
+        form = TipoNoticiaForm()
+
+    return render(request, 'admin/AgregarTipoNoticia.html', {'form': form})
+
+def AgregarAsunto(request):
+    if request.method == 'POST':
+        form = AsuntoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('AgregarAsunto')
+    else:
+        form = AsuntoForm()
+
+    return render(request, 'admin/AgregarAsunto.html', {'form': form})
+
+def Contactanos(request):
+    if request.method == 'POST':
+        form = MensajeUsuarioForm(request.POST) 
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('Contactanos.html')
+    else:
+        form = MensajeUsuarioForm()
+
+    return render(request, 'Contactanos.html', {'form': form})
