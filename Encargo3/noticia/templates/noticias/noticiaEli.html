@@ -3,11 +3,191 @@
 {% load static %}
 
 {% block title %}
-    Eli de caso
+    Economia
 {% endblock %}
-
 {% block content %}
 
+<!-- Tendencias -->
+<div class="container-fluid mt-5 mb-3 pt-3">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="section-title border-right-0 mb-0" style="width: 180px;">
+                      <h4 class="m-0 text-uppercase font-weight-bold">Tendencia</h4>
+                  </div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
+                      style="width: calc(100% - 180px); padding-right: 100px;">
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaEncerrona'%}">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaNintendo'%}">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- fin tendencias -->
+
+<!-- noticia -->
+<div class="container-fluid">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <!-- inicio noticia -->
+              <div class="position-relative mb-3">
+                  <img class="img-fluid w-100" src="{% static 'img/elidecaso.webp' %}" style="object-fit: cover;">
+                  <div class="bg-white border border-top-0 p-4">
+                      <div class="mb-3">
+                          <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                            href="{% url 'actualidad'%}">Economia</a>
+                          <a class="text-body" href="">1 de Julio, 2024</a>
+                      </div>
+                      <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">ELI DE CASO REVELÓ COMPLEJO MOMENTO ECONÓMICO TRAS SU SALIDA DE LA TV: “ME QUEDÉ SIN PEGA, SIN PLATA”</h1>
+                      <p >Afortunadamente yo me había comprado una casa con algunos comerciales que había hecho. Con eso salí adelante, pero estuve como un año y medio que, al programa que me invitaban, iba, porque con esa plata me mantenía”, confesó en diálogo con Kike Morandé.</p>
+                        <BR>
+                        La comunicadora Eli de Caso, reconocida por su programa “Aló Eli” transmitido por La Red, confesó, en diálogo con Kike Morande, el delicado momento económico que sufrió tras su salida de la televisión hace 20 años.</p>
+                        <BR>
+                        “No tenía plata ahorrada, porque había mucha gente que dependía de mí. No alcanzaba a ahorrar y estaba enferma”, señaló de Caso, quien pasó de la pantalla a la venta de seguros.</p>
+                        <BR>
+                        “Me quedé sin pega, sin plata, pero afortunadamente yo me había comprado una casa con algunos comerciales que había hecho. Con eso salí adelante, pero estuve como un año y medio que, al programa que me invitaban, iba, porque con esa plata me mantenía”, confesó la comunicadora.</p>
+                        <BR>
+                        En la instancia, rememoró que fue invitada en tres ocasiones al programa “Vértigo”, donde ganó “dos autos. Esos autos yo los vendí y con eso estuve un par de meses viviendo. Lo pasé mal, más encima enferma y sola”, lamentó.</p>
+                        <BR>
+                        Cabe recordar que Eli de Caso abordó su dramático momento económico en el programa “De Tú a Tú”, conducido por Martín Cárcamo. “Nunca pude ahorrar porque mantenía a mucha gente. Mantenía a mi mamá con su hermana, a mis tres hijos, dos empleadas, un auxiliar, la casa, la comida y todo lo que significa vivir. No me alcanzaba”, recogió La Cuarta.</p>
+                        <BR>
+                        “Perdí muchas cosas. Perdí humildad en un momento dado. Me creía la muerte. Era la reina de Chile. Pensé que eso nunca iba a terminar (…) Increíble, un golpe así al ego. No eres imprescindible para nada. Es un trabajo. Mañana dejas de existir y te conviertes en nada. Así es la televisión”, explicó.</p>
+                        <BR>
+                        <BR>
+
+                        
+
+                  </div>
+                  <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                      <div class="d-flex align-items-center">
+                          <img class="rounded-circle mr-2" src="{% static 'img/rene.jpg' %}" width="25" height="25" alt="">
+                          <span>Rene Puentes</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <span class="ml-3"><i class="far fa-eye mr-2"></i>3100</span>
+                          <span class="ml-3"><i class="far fa-comment mr-2"></i>230</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        
+<!-- fin noticia -->
+        
+<div class="col-lg-4">
+  <!-- redes -->
+  <div class="mb-3">
+      <div class="section-title mb-0">
+          <h4 class="m-0 text-uppercase font-weight-bold">¡Síguenos!</h4>
+      </div>
+      <div class="bg-white border border-top-0 p-3">
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+              <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">6.241 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+              <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15.000 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15,645 Followers</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Suscriptores</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- anuncios :D -->
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+        <a href=""><img class="img-fluid" src="{% static 'img/publicidad1.webp' %}" alt=""></a>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+      <a href=""><img class="img-fluid" src="{% static 'img/publicidad2.jpg' %}" alt=""></a>
+  </div>
+</div>
+<!-- fin anuncios -->
 
 
+<!-- tagsss -->
+
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div class="d-flex flex-wrap m-n1">
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Actualidad</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Economía</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Deportes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Tecnología</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cultura</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Salud</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Internacional</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Medio Ambiente</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Opinión</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Política</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Ciencia</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Entretenimiento</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Viajes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Educación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Negocios</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Finanzas</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Estilo de Vida</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Investigación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cine</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Música</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+  <!-- fin de tags -->
+
+
+ 
+
+
+
+
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

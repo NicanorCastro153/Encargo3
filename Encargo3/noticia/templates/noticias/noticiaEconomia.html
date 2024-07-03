@@ -3,90 +3,238 @@
 {% load static %}
 
 {% block title %}
-    Actualidad
+    Economia
 {% endblock %}
-
 {% block content %}
-      <br>
-      <br>
-      <br>
-      <div class="container"> 
-        <h1 class="centrar">Dólar baja hasta su menor nivel desde enero y queda al borde de los $900 en medio de euforia por cobre &#128176;</h1>
-          <br>
-          <br>
-          <br>
-          <img class="container video" src="Imagenes/Artículo-de-Economía.jpg" alt="basketboll" height="500" width="700">
-        
-          <br>
-          <br>
-          <br>
-        
-        
-          <p >La caída significativa del dólar estadounidense hasta acercarse a los $900 pesos chilenos, marcando su mínimo desde enero, coincide con un clima de entusiasmo en los mercados financieros. Este fenómeno se debe al excelente rendimiento del mercado del cobre, conocido como el "oro rojo" de Chile, cuyo precio ha alcanzado niveles históricos superando los $5 la libra. Factores como una sólida demanda global, especialmente de China, y preocupaciones sobre la oferta han contribuido a este ascenso.
 
-            El impacto positivo en la economía chilena es evidente, dado que el país es el principal productor mundial de cobre. Las exportaciones de este metal representan una parte considerable de los ingresos nacionales, por lo que su aumento de valor repercute directamente en la economía. La debilidad del dólar hasta el umbral de los $900 pesos chilenos brinda una oportunidad para los exportadores y sectores productivos del país, al hacer sus productos más competitivos internacionalmente.
-            
-            A pesar de las oportunidades que presenta esta situación, los analistas advierten sobre la necesidad de precaución y seguimiento constante de los mercados financieros. La volatilidad y posibles cambios en las políticas económicas podrían alterar esta dinámica favorable en el futuro cercano. En resumen, el dólar alcanza su nivel más bajo desde enero en un contexto de euforia por el cobre, ofreciendo oportunidades para la economía chilena, pero también requiriendo vigilancia ante posibles cambios en el panorama económico global.</p>
-            <BR>
-            <BR>
-                <h3>REVISA EL VALOR  ACTUAL DE LAS MONEDAS MAS IMPORTANTES &#128178;</h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="tabla-color" scope="col">Moneda</th>
-                            <th class="tabla-color" scope="col">Valor</th>
-                        </tr>
-                        <BR></BR>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">UF</th>
-                            <td id="ufValue"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Dólar</th>
-                            <td id="dolarValue"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Euro</th>
-                            <td id="euroValue"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">UTM</th>
-                            <td id="pesoChilenoValue"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p id="errorMessage" class="text-danger"></p>
-                <DIV>
-                    <div>
-                        <p style="display: inline;">Fuente:</p>
-                        <a id="link" href="https://mindicador.cl/" style="display: inline;">Mindicador.cl</a>
-                    </div>
-            </DIV>
+<!-- Tendencias -->
+<div class="container-fluid mt-5 mb-3 pt-3">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="section-title border-right-0 mb-0" style="width: 180px;">
+                      <h4 class="m-0 text-uppercase font-weight-bold">Tendencia</h4>
+                  </div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
+                      style="width: calc(100% - 180px); padding-right: 100px;">
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaEncerrona'%}">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="{% url 'noticiaNintendo'%}">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- fin tendencias -->
+
+<!-- noticia -->
+<div class="container-fluid">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <!-- inicio noticia -->
+              <div class="position-relative mb-3">
+                  <img class="img-fluid w-100" src="{% static 'img/Artículo-de-Economía.jpg' %}" style="object-fit: cover;">
+                  <div class="bg-white border border-top-0 p-4">
+                      <div class="mb-3">
+                          <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                            href="{% url 'actualidad'%}">Economia</a>
+                          <a class="text-body" href="">3 de Julio, 2024</a>
+                      </div>
+                      <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">Dólar baja hasta su menor nivel desde enero y queda al borde de los $900 en medio de euforia por cobre</h1>
+                      <p >La caída significativa del dólar estadounidense hasta acercarse a los $900 pesos chilenos, marcando su mínimo desde enero, coincide con un clima de entusiasmo en los mercados financieros. Este fenómeno se debe al excelente rendimiento del mercado del cobre, conocido como el "oro rojo" de Chile, cuyo precio ha alcanzado niveles históricos superando los $5 la libra. Factores como una sólida demanda global, especialmente de China, y preocupaciones sobre la oferta han contribuido a este ascenso.
+
+                        El impacto positivo en la economía chilena es evidente, dado que el país es el principal productor mundial de cobre. Las exportaciones de este metal representan una parte considerable de los ingresos nacionales, por lo que su aumento de valor repercute directamente en la economía. La debilidad del dólar hasta el umbral de los $900 pesos chilenos brinda una oportunidad para los exportadores y sectores productivos del país, al hacer sus productos más competitivos internacionalmente.
+                        
+                        A pesar de las oportunidades que presenta esta situación, los analistas advierten sobre la necesidad de precaución y seguimiento constante de los mercados financieros. La volatilidad y posibles cambios en las políticas económicas podrían alterar esta dinámica favorable en el futuro cercano. En resumen, el dólar alcanza su nivel más bajo desde enero en un contexto de euforia por el cobre, ofreciendo oportunidades para la economía chilena, pero también requiriendo vigilancia ante posibles cambios en el panorama económico global.</p>
+                        <BR>
+                        <BR>
+                            <h3>REVISA EL VALOR  ACTUAL DE LAS MONEDAS MAS IMPORTANTES &#128178;</h3>
+                        
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="tabla-color" scope="col">Moneda</th>
+                                        <th class="tabla-color" scope="col">Valor</th>
+                                    </tr>
+                                    <BR></BR>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">UF</th>
+                                        <td id="ufValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dólar</th>
+                                        <td id="dolarValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Euro</th>
+                                        <td id="euroValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">UTM</th>
+                                        <td id="pesoChilenoValue"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p id="errorMessage" class="text-danger"></p>
+                            <DIV>
+                                <div>
+                                    <p style="display: inline;">Fuente:</p>
+                                    <a id="link" href="https://mindicador.cl/" style="display: inline;">Mindicador.cl</a>
+                                </div>
+                            </div>
+
+                        
+
+                  </div>
+                  <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                      <div class="d-flex align-items-center">
+                          <img class="rounded-circle mr-2" src="{% static 'img/rene.jpg' %}" width="25" height="25" alt="">
+                          <span>Rene Puentes</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <span class="ml-3"><i class="far fa-eye mr-2"></i>1040</span>
+                          <span class="ml-3"><i class="far fa-comment mr-2"></i>230</span>
+                      </div>
+                  </div>
+              </div>
             </div>
-            
-
-        </div>
         
-        <script>
-            $.getJSON('https://mindicador.cl/api', function(data) {
-            var dailyIndicators = data;
-            console.log(dailyIndicators);
-    
+<!-- fin noticia -->
+        
+<div class="col-lg-4">
+  <!-- redes -->
+  <div class="mb-3">
+      <div class="section-title mb-0">
+          <h4 class="m-0 text-uppercase font-weight-bold">¡Síguenos!</h4>
+      </div>
+      <div class="bg-white border border-top-0 p-3">
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+              <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">6.241 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+              <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15.000 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15,645 Followers</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Suscriptores</span>
+          </a>
+      </div>
+  </div>
 
-            });
-            $(document).ready(function(){
-            $.getJSON('https://mindicador.cl/api', function(data) {
-                $('#ufValue').text('$' + data.uf.valor);
-                $('#dolarValue').text('$' + data.dolar.valor);
-                $('#euroValue').text('$' + data.euro.valor);
-                $('#pesoChilenoValue').text('$' + data.utm.valor);
-            }).fail(function() {
-                $('#errorMessage').text('Error al cargar los datos de la API');
-            });
-        });
+  <!-- anuncios :D -->
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+        <a href=""><img class="img-fluid" src="{% static 'img/publicidad1.webp' %}" alt=""></a>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+      <a href=""><img class="img-fluid" src="{% static 'img/publicidad2.jpg' %}" alt=""></a>
+  </div>
+</div>
+<!-- fin anuncios -->
 
 
-        </script>
+<!-- tagsss -->
+
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div class="d-flex flex-wrap m-n1">
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Actualidad</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Economía</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Deportes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Tecnología</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cultura</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Salud</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Internacional</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Medio Ambiente</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Opinión</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Política</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Ciencia</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Entretenimiento</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Viajes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Educación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Negocios</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Finanzas</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Estilo de Vida</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Investigación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cine</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Música</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+  <!-- fin de tags -->
+
+
+  <script>
+    $.getJSON('https://mindicador.cl/api', function(data) {
+    var dailyIndicators = data;
+    console.log(dailyIndicators);
+
+
+    });
+    $(document).ready(function(){
+    $.getJSON('https://mindicador.cl/api', function(data) {
+        $('#ufValue').text('$' + data.uf.valor);
+        $('#dolarValue').text('$' + data.dolar.valor);
+        $('#euroValue').text('$' + data.euro.valor);
+        $('#pesoChilenoValue').text('$' + data.utm.valor);
+    }).fail(function() {
+        $('#errorMessage').text('Error al cargar los datos de la API');
+    });
+});
+
+
+</script>
+
+
+
+
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
