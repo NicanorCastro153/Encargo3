@@ -1,99 +1,159 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css"> 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+{% extends "base.html" %}
 
-     <!---NAVBAR-->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <!-- Logo al lado izquierdo -->
-      <a class="navbar-brand" href="principal.html">
-        <img src="Imagenes/Logo-principal.png" alt="Logo" class="logo"> 
-        NewsCL
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="principal.html"> Inicio <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="actualidad.html"> Actualidad </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Economia.html"> Economia </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="deporte.html"> Deportes </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactanos.html"> Contactanos </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-    
+{% load static %}
 
-      <!---FIN NAVBAR-->
-      
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="news-container">
-              <!-- noticia -->
-              <h1>PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</h1>
-              <br>
-              <h2 class="cursiva texto-pequeno">
-                “Por primera vez en nueve años desde que se anunció la existencia de Nintendo Switch en marzo de 2015, haremos un anuncio sobre el sucesor de Switch durante este período”, escribió el presidente de la compañía nipona, Shuntaro Furukawa.
-              </h2>
-              <br>
-              <img src="Imagenes/Noticia3-switch.webp" alt="Imagen de la noticia" class="news-image img-fluid">
-              <br><br>
-                La mañana de este martes no fue nada gris para los fanáticos de Nintendo, quienes despertaron con una esperanzadora noticia: La consola sucesora de Nintendo Switch, popularmente conocida como “Switch 2”, será anunciada este año.
-                <br>
-                <br>
-                Así lo confirmó a través de su cuenta de X el presidente de la compañía Shuntaro Furukawa, quien aseguró que la nueva consola será anunciada dentro de este año fiscal, es decir, entre mayo del 2024 y el 31 de marzo de 2025, siguiendo los lineamientos del año fiscal japonés.
-                <br>
-                <br>
-                “Este es Furukawa, el presidente. Por primera vez en nueve años desde que se anunció la existencia de Nintendo Switch en marzo de 2015, haremos un anuncio sobre el sucesor de Switch durante este período”, escribió Furukawa.
-                <br>
-                <br>
-                Asimismo, Furukawa sostuvo que durante junio se realizará un Nintendo Direct. Sin embargo, fue claro en subrayar que “no se mencionará a la sucesora de la Nintendo Switch durante esa presentación”, destruyendo el corazón de los nintenderos.
-                <br>
-                <br>
-                Según consignó Vandal, la consola tendrá un tamaño superior a su predecesora y contará con un sistema de joy-con magnéticos. Asimismo, se asegura que la pantalla será de 8 pulgadas (1 más que la Switch original) y que contará con una resolución de 1080p en su modo portátil, alcanzando el 4K jugando en dock.
-                <br>
-                <br>
-                Nintendo anunció la primera consola Nintendo Switch en 2015, saliendo a la venta en 2017. Desde su salida han lanzado diferentes versiones del dispositivo, como es la versión Lite y OLED. Dentro de su amplio catálogo de juegos se encuentran títulos como “Super Mario Odyssey”; “Super Smash Bros. Ultimate”; “The Legend of Zelda: Breath of the Wild” y “Tears of The Kingdom”; Metroid Prime Remastered”, entre otros.
-            </div>
+{% block title %}
+    Actualidad
+{% endblock %}
+
+{% block content %}
+
+<!-- Tendencias -->
+<div class="container-fluid mt-5 mb-3 pt-3">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="d-flex justify-content-between">
+                  <div class="section-title border-right-0 mb-0" style="width: 180px;">
+                      <h4 class="m-0 text-uppercase font-weight-bold">Tendencia</h4>
+                  </div>
+                  <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
+                      style="width: calc(100% - 180px); padding-right: 100px;">
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="">HABLA VÍCTIMA DE ENCERRONA TRAS SU MATRIMONIO: “ESPERO ALGÚN DÍA VENCER ESTE MIEDO Y RECUPERAR LA ESPERANZA”</a></div>
+                      <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold" href="">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</a></div>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
+  </div>
+</div>
+<!-- fin tendencias -->
 
-<!-- jQuery, Popper.js, Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- noticia -->
+<div class="container-fluid">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <!-- inicio noticia -->
+              <div class="position-relative mb-3">
+                  <img class="img-fluid w-100" src="{% static 'img/Noticia3-switch.webp' %}" style="object-fit: cover;">
+                  <div class="bg-white border border-top-0 p-4">
+                      <div class="mb-3">
+                          <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                            href="{% url 'actualidad'%}">Actualidad</a>
+                          <a class="text-body" href="">5 de Julio, 2024</a>
+                      </div>
+                      <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">PRESIDENTE DE NINTENDO CONFIRMÓ QUE LA SUCESORA DE NINTENDO SWITCH SERÁ ANUNCIADA ESTE AÑO</h1>
+                      <p>La mañana de este martes no fue nada gris para los fanáticos de Nintendo, quienes despertaron con una esperanzadora noticia: La consola sucesora de Nintendo Switch, popularmente conocida como “Switch 2”, será anunciada este año.
+                        <br>
+                        <br>
+                        Así lo confirmó a través de su cuenta de X el presidente de la compañía Shuntaro Furukawa, quien aseguró que la nueva consola será anunciada dentro de este año fiscal, es decir, entre mayo del 2024 y el 31 de marzo de 2025, siguiendo los lineamientos del año fiscal japonés.
+                        <br>
+                        <br>
+                        “Este es Furukawa, el presidente. Por primera vez en nueve años desde que se anunció la existencia de Nintendo Switch en marzo de 2015, haremos un anuncio sobre el sucesor de Switch durante este período”, escribió Furukawa.
+                        <br>
+                        <br>
+                        Asimismo, Furukawa sostuvo que durante junio se realizará un Nintendo Direct. Sin embargo, fue claro en subrayar que “no se mencionará a la sucesora de la Nintendo Switch durante esa presentación”, destruyendo el corazón de los nintenderos.
+                        <br>
+                        <br>
+                        Según consignó Vandal, la consola tendrá un tamaño superior a su predecesora y contará con un sistema de joy-con magnéticos. Asimismo, se asegura que la pantalla será de 8 pulgadas (1 más que la Switch original) y que contará con una resolución de 1080p en su modo portátil, alcanzando el 4K jugando en dock.
+                        <br>
+                        <br>
+                        Nintendo anunció la primera consola Nintendo Switch en 2015, saliendo a la venta en 2017. Desde su salida han lanzado diferentes versiones del dispositivo, como es la versión Lite y OLED. Dentro de su amplio catálogo de juegos se encuentran títulos como “Super Mario Odyssey”; “Super Smash Bros. Ultimate”; “The Legend of Zelda: Breath of the Wild” y “Tears of The Kingdom”; Metroid Prime Remastered”, entre otros.
+                        </p>
 
-</body>
-</html>
+                  </div>
+                  <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                      <div class="d-flex align-items-center">
+                          <img class="rounded-circle mr-2" src="{% static 'img/rene.jpg' %}" width="25" height="25" alt="">
+                          <span>Rene Puentes</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <span class="ml-3"><i class="far fa-eye mr-2"></i>1500</span>
+                          <span class="ml-3"><i class="far fa-comment mr-2"></i>90</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        
+<!-- fin noticia -->
+        
+<div class="col-lg-4">
+  <!-- redes -->
+  <div class="mb-3">
+      <div class="section-title mb-0">
+          <h4 class="m-0 text-uppercase font-weight-bold">¡Síguenos!</h4>
+      </div>
+      <div class="bg-white border border-top-0 p-3">
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+              <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">6.241 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+              <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15.000 Seguidores</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">15,645 Followers</span>
+          </a>
+          <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Suscriptores</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- anuncios :D -->
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+        <a href=""><img class="img-fluid" src="{% static 'img/publicidad1.webp' %}" alt=""></a>
+    </div>
+    <div class="bg-white text-center border border-top-0 p-3">
+      <a href=""><img class="img-fluid" src="{% static 'img/publicidad2.jpg' %}" alt=""></a>
+  </div>
+</div>
+<!-- fin anuncios -->
 
 
+<!-- tagsss -->
+
+  <div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div class="d-flex flex-wrap m-n1">
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Actualidad</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Economía</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Deportes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Tecnología</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cultura</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Salud</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Internacional</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Medio Ambiente</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Opinión</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Política</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Ciencia</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Entretenimiento</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Viajes</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Educación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Negocios</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Finanzas</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Estilo de Vida</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Investigación</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Cine</a>
+          <a href="" class="btn btn-sm btn-outline-secondary m-1">Música</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+  <!-- fin de tags -->
+
+{% endblock %}
 
