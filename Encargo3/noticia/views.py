@@ -1,12 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
+from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia, Usuario
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .forms import UsuarioLoginForm
 0
 # Create your views here.
 
@@ -107,17 +108,25 @@ def Contactanos(request):
 
 
 
-def user_login(request):
+def Iniciar_sesion(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')  # Redirige al home después de iniciar sesión
-        else:
-            messages.error(request, 'Credenciales incorrectas.')
-    return render(request, 'Iniciar_sesion.html')
+        form = UsuarioLoginForm(request.POST)  
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            contraseña = form.cleaned_data['contraseña']
+
+            # Authenticate user
+            user = authenticate(request, username=nombre, password=contraseña)
+
+            if user is not None:
+                login(request, user)
+                return redirect('home')  
+            else:
+                messages.error(request, 'Credenciales incorrectas.')
+    else:
+        form = UsuarioLoginForm()  
+
+    return render(request, 'menu/Iniciar_sesion.html', {'form': form})
 
 def contactanos(request):
     if request.method != "POST":
@@ -149,17 +158,17 @@ def registrar(request):
         fecha_nacimiento = request.POST['fecha_nacimiento']
         contraseña = request.POST['password']
 
-        if Noticia.objects.filter(email=email).exists():
+        if Usuario.objects.filter(email=email).exists():
             messages.error(request, 'El correo electrónico ya está registrado.')
 
         else:
-            Noticia.objects.create(
+            Usuario.objects.create(
                 nombre=nombre,
                 email=email,
                 fecha_nacimiento=fecha_nacimiento,
                 contraseña=contraseña
             )
             messages.success(request, 'Usuario registrado exitosamente.')
-            return redirect(('home'))  # Asegúrate de tener una vista llamada 'home'
+            return redirect(('registrar'))  
 
     return render(request, 'menu/registrar.html')
