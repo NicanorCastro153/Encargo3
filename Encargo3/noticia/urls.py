@@ -9,6 +9,8 @@ urlpatterns = [
     path('contactanos',views.contactanos, name='contactanos'),
     path('deporte',views.deporte, name='deporte'),
     path('economia',views.economia, name='economia'),
+    path('login', views.user_login, name='login'),
+    path('registrar', views.registrar, name='registrar'),
     #noticias
     path('noticiaArsenal',views.noticiaArsenal, name='noticiaArsenal'),
     path('noticiaBasketball',views.noticiaBasketball, name='noticiaBasketball'),
@@ -24,5 +26,6 @@ urlpatterns = [
     path('AgregarTipoNoticia',views.AgregarTipoNoticia, name='AgregarTipoNoticia'),
     path('AgregarAsunto',views.AgregarAsunto, name='AgregarAsunto'),
     path('Contactanos',views.Contactanos, name='Contactanos'),
-    
+    path('Iniciar_sesion',views.Iniciar_sesion, name='Iniciar_sesion'),
+
 ]

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Register
+{% endblock %}
+{% block content %}
+
+<!-- Register Form -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-black text-center nav-item nav-link h3">Registrar</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{% url 'registrar' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block d-flex justify-content-center align-items-center">Registrar</button>
+
+                        {% if messages %}
+                            <div class="alert alert-danger mt-3">
+                                {% for message in messages %}
+                                    <p>{{ message }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </form>
+                    <br/>
+                    <div class="login-link">
+                        <center>
+                            <p>¿Ya tienes una cuenta? <a href="{% url 'Iniciar_sesion' %}">Inicia sesión aquí</a></p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

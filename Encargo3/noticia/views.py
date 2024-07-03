@@ -3,6 +3,10 @@ from django.shortcuts import render
 
 from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 0
 # Create your views here.
 
@@ -21,6 +25,12 @@ def deporte(request):
 
 def economia(request):
     return render(request, 'menu/economia.html')
+
+def Iniciar_sesion(request):
+    return render(request, 'menu/Iniciar_sesion.html')
+
+def registrar(request):
+    return render(request, 'menu/registrar.html')
 
 # noticias
 def noticiaArsenal(request):
@@ -49,6 +59,9 @@ def noticiaLula(request):
 
 def noticiaeli(request):
     return render(request, 'noticias/noticiaEli.html')
+
+
+
 
 def AgregarNoticia(request):
     if request.method == 'POST':
@@ -93,3 +106,20 @@ def Contactanos(request):
         form = MensajeUsuarioForm()
 
     return render(request, 'Contactanos.html', {'form': form})
+
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')  # Redirige al home después de iniciar sesión
+        else:
+            messages.error(request, 'Credenciales incorrectas.')
+    return render(request, 'Iniciar_sesion.html')
+
+
+

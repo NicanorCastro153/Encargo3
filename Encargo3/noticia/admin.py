@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Asunto, MensajeUsuario, TipoNoticia, Noticia
-# Register your models here.
+# modelos
 
 admin.site.register(Asunto)
 admin.site.register(MensajeUsuario)
