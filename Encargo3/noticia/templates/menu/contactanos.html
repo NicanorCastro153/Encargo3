@@ -46,36 +46,37 @@
                         </div>
                     </div>
                     <h6 class="text-uppercase font-weight-bold mb-3">Tambien puedes enviar un ticket:</h6>
-                    <form>
+                    <form action="{% url 'contactanos' %}" method="post">
+                        {% csrf_token %}
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Nombre completo:" name="nombre" required="required"/>
+                                    <input type="text" class="form-control p-4" placeholder="Nombre:" name="nombre" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Email:" name="correo" required="required"/>
+                                    <input type="email" class="form-control p-4" placeholder="Email:" name="correo" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="asunto">Asunto:</label>
-                            <select class="form-control" name="asunto" id="asunto" required="required">
+                            <select class="form-control" name="asunto" id="asunto" required>
                                 <option value="">Selecciona un asunto</option>
-                                {% for mensaje in mensajes %}
-                                    <option value="{{ mensaje.asunto.id_asunto }}">{{ mensaje.asunto.asunto }}</option>
+                                {% for asunto in asuntos %}
+                                <option value="{{ asunto.id_asunto }}">{{ asunto.asunto }}</option>
                                 {% endfor %}
                             </select>
-                        </div>                       
+                        </div>                        
                         <div class="form-group">
-                            <textarea class="form-control" rows="4" placeholder="Mensaje:" name="motivo" required="required"></textarea>
+                            <textarea class="form-control" rows="4" placeholder="Mensaje:" name="motivo" required></textarea>
                         </div>
                         <div>
-                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
-                                type="submit">Enviar Mensaje</button>
+                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;" type="submit">Enviar Mensaje</button>
                         </div>
                     </form>
+                                       
                 </div>
             </div>
             <div class="col-lg-4">

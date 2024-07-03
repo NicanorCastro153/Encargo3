@@ -128,27 +128,35 @@ def Iniciar_sesion(request):
 
     return render(request, 'menu/Iniciar_sesion.html', {'form': form})
 
-def contactanos(request):
-    if request.method != "POST":
-        return render(request, 'menu/contactanos.html') 
-    else:
-        nombre = request.POST.get("name")
-        correo = request.POST.get("email")
-        asunto = request.POST.get("snombre")
-        motivo = request.POST.get("appaterno")
+from django.shortcuts import render
+from .models import MensajeUsuario, Asunto
 
-        obj = MensajeUsuario.objects.create(
+from django.shortcuts import render, redirect
+from .models import MensajeUsuario, Asunto
+
+def contactanos(request):
+    if request.method == "GET":
+        asuntos = Asunto.objects.all()
+        context = {'asuntos': asuntos}
+        return render(request, 'menu/contactanos.html', context)
+    else:
+        nombre = request.POST.get("nombre")
+        correo = request.POST.get("correo")
+        asunto_id = request.POST.get("asunto")
+        motivo = request.POST.get("motivo")
+
+        asunto = Asunto.objects.get(id_asunto=asunto_id)
+        mensaje = MensajeUsuario.objects.create(
             nombre=nombre,
             correo=correo,
             asunto=asunto,
             motivo=motivo,
         )
+        mensaje.save()
+        context = {'mensaje': '¡Datos grabados correctamente!'}
+        return render(request, 'menu/home.html', context)
 
-        obj.save()
-        context = {
-            'mensaje': '¡Datos grabados correctamente!'
-        }
-        return render(request, 'menu/contactanos.html', context)
+
 
 def registrar(request):
 
