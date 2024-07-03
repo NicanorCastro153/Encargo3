@@ -29,8 +29,6 @@ def economia(request):
 def Iniciar_sesion(request):
     return render(request, 'menu/Iniciar_sesion.html')
 
-def registrar(request):
-    return render(request, 'menu/registrar.html')
 
 # noticias
 def noticiaArsenal(request):
@@ -121,5 +119,47 @@ def user_login(request):
             messages.error(request, 'Credenciales incorrectas.')
     return render(request, 'Iniciar_sesion.html')
 
+def contactanos(request):
+    if request.method != "POST":
+        return render(request, 'menu/contactanos.html') 
+    else:
+        nombre = request.POST.get("name")
+        correo = request.POST.get("email")
+        asunto = request.POST.get("snombre")
+        motivo = request.POST.get("appaterno")
 
+        obj = MensajeUsuario.objects.create(
+            nombre=nombre,
+            correo=correo,
+            asunto=asunto,
+            motivo=motivo,
+        )
 
+        obj.save()
+        context = {
+            'mensaje': '¡Datos grabados correctamente!'
+        }
+        return render(request, 'menu/contactanos.html', context)
+
+def registrar(request):
+
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        email = request.POST['email']
+        fecha_nacimiento = request.POST['fecha_nacimiento']
+        contraseña = request.POST['password']
+
+        if Noticia.objects.filter(email=email).exists():
+            messages.error(request, 'El correo electrónico ya está registrado.')
+
+        else:
+            Noticia.objects.create(
+                nombre=nombre,
+                email=email,
+                fecha_nacimiento=fecha_nacimiento,
+                contraseña=contraseña
+            )
+            messages.success(request, 'Usuario registrado exitosamente.')
+            return redirect(('home'))  # Asegúrate de tener una vista llamada 'home'
+
+    return render(request, 'menu/registrar.html')
