@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    PanelAministrador
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mt-5">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" id="VerMensajes">Ver Mensajes</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="Mensajes">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Mensaje</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Asunto</th>
+                    <th>Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for msj in mensajes %}
+                <tr>
+                    <td>{{ msj.id_mensaje }}</td>
+                    <td>{{ msj.nombre }}</td>
+                    <td>{{ msj.correo }}</td>
+                    <td>{{ msj.asunto }}</td>
+                    <td>{{ msj.motivo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<br><br><br><br><br>
+{% endblock %}

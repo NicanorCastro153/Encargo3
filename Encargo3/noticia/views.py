@@ -96,7 +96,7 @@ def AgregarTipoNoticia(request):
     else:
         form = TipoNoticiaForm()
 
-    return render(request, 'adminforms/AgregarTipoNoticia.html', {'form': form})
+    return render(request, 'forms/AgregarTipoNoticia.html', {'form': form})
 #forms
 def AgregarAsunto(request):
     if request.method == 'POST':
@@ -107,7 +107,7 @@ def AgregarAsunto(request):
     else:
         form = AsuntoForm()
 
-    return render(request, 'adminforms/AgregarAsunto.html', {'form': form})
+    return render(request, 'forms/AgregarAsunto.html', {'form': form})
 #forms
 def Contactanos(request):
     if request.method == 'POST':

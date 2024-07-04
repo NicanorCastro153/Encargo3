@@ -35,5 +35,3 @@ class Noticia(models.Model):
 
     def __str__(self):
         return str(self.titulo)
-
-
