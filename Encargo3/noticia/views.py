@@ -181,7 +181,7 @@ def Iniciar_sesion(request):
         if user is None:
             return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
         elif user.is_superuser:
-            return redirect("Paneladministrador")
+            return redirect("PanelAdministrador")
         else: 
             return redirect("home")
            
