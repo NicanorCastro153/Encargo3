@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ titulo }}</title>
+    <title>AgregarNoticia</title>
 </head>
 <body>
-    <h1>Agregar Asunto en formulario contactanos (Queja,Consulta,etc...)</h1>
+    <h1>Agregar Noticia </h1>
 
-    <form action="{% url 'AgregarAsunto' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'AgregarNoticia' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-primary">Enviar</button>

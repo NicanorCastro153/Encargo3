@@ -11,7 +11,7 @@ class Asunto(models.Model):
 class MensajeUsuario(models.Model):
     id_mensaje = models.AutoField(primary_key=True, null=False)
     nombre = models.CharField(max_length=20, null=True)
-    correo = models.EmailField(unique=True, max_length=40, null=False)
+    correo = models.EmailField(max_length=40, null=False)
     asunto = models.ForeignKey(Asunto, on_delete=models.CASCADE, db_column='idAsunto', null=True)
     motivo = models.TextField(max_length=300, null=False)
 

@@ -13,66 +13,79 @@ from .forms import UsuarioLoginForm
 
 # opciones navbar
 def home(request):
-    return render(request, 'menu/home.html')
+    context={}
+    return render(request, 'menu/home.html',context)
 
 def actualidad(request):
-    return render(request, 'menu/actualidad.html')
+    context={}
+    return render(request, 'menu/actualidad.html',context)
 
 def contactanos(request):
-    return render(request, 'menu/contactanos.html')
+    context={}
+    return render(request, 'menu/contactanos.html',context)
 
 def deporte(request):
-    return render(request, 'menu/deporte.html')
+    context={}
+    return render(request, 'menu/deporte.html',context)
 
 def economia(request):
-    return render(request, 'menu/economia.html')
+    context={}
+    return render(request, 'menu/economia.html',context)
 
 def Iniciar_sesion(request):
-    return render(request, 'menu/Iniciar_sesion.html')
+    context={}
+    return render(request, 'menu/Iniciar_sesion.html',context)
 
 
 # noticias
 def noticiaArsenal(request):
-    return render(request, 'noticias/noticiaArsenal.html')
+    context={}
+    return render(request, 'noticias/noticiaArsenal.html',context)
 
 def noticiaBasketball(request):
-    return render(request, 'noticias/noticiaBasketball.html')
+    context={}
+    return render(request, 'noticias/noticiaBasketball.html',context)
 
 def noticiaEconomia(request):
-    return render(request, 'noticias/noticiaEconomia.html')
+    context={}
+    return render(request, 'noticias/noticiaEconomia.html',context)
 
 def noticiaEncerrona(request):
-    return render(request, 'noticias/noticiaEncerrona.html')
+    context={}
+    return render(request, 'noticias/noticiaEncerrona.html',context)
 
 def noticiaMonroe(request):
-    return render(request, 'noticias/noticiaMonroe.html')
+    context={}
+    return render(request, 'noticias/noticiaMonroe.html',context)
 
 def noticiaNintendo(request):
-    return render(request, 'noticias/noticiaNintendo.html')
+    context={}
+    return render(request, 'noticias/noticiaNintendo.html',context)
 
 def noticiaTenis(request):
-    return render(request, 'noticias/noticiaTenis.html')
+    context={}
+    return render(request, 'noticias/noticiaTenis.html',context)
 
 def noticiaLula(request):
-    return render(request, 'noticias/noticiaLula.html')
+    context={}
+    return render(request, 'noticias/noticiaLula.html',context)
 
 def noticiaeli(request):
-    return render(request, 'noticias/noticiaEli.html')
+    context={}
+    return render(request, 'noticias/noticiaEli.html',context)
 
-
-
-
+#forms
 def AgregarNoticia(request):
     if request.method == 'POST':
-        form = NoticiaForm(request.POST, request.FILES)  # Asegúrate de incluir request.FILES para manejar archivos
+        form = NoticiaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('AgregarNoticia.html')
     else:
         form = NoticiaForm()
 
-    return render(request, 'admin/AgregarNoticia.html', {'form': form})
-
+    return render(request, 'forms/AgregarNoticia.html', {'form': form})
+#forms
 def AgregarTipoNoticia(request):
     if request.method == 'POST':
         form = TipoNoticiaForm(request.POST)
@@ -82,8 +95,8 @@ def AgregarTipoNoticia(request):
     else:
         form = TipoNoticiaForm()
 
-    return render(request, 'admin/AgregarTipoNoticia.html', {'form': form})
-
+    return render(request, 'adminforms/AgregarTipoNoticia.html', {'form': form})
+#forms
 def AgregarAsunto(request):
     if request.method == 'POST':
         form = AsuntoForm(request.POST)
@@ -93,8 +106,8 @@ def AgregarAsunto(request):
     else:
         form = AsuntoForm()
 
-    return render(request, 'admin/AgregarAsunto.html', {'form': form})
-
+    return render(request, 'adminforms/AgregarAsunto.html', {'form': form})
+#forms
 def Contactanos(request):
     if request.method == 'POST':
         form = MensajeUsuarioForm(request.POST) 
@@ -104,7 +117,7 @@ def Contactanos(request):
     else:
         form = MensajeUsuarioForm()
 
-    return render(request, 'Contactanos.html', {'form': form})
+    return render(request, 'forms/Contactanos.html', {'form': form})
 
 
 
@@ -127,12 +140,6 @@ def Iniciar_sesion(request):
         form = UsuarioLoginForm()  
 
     return render(request, 'menu/Iniciar_sesion.html', {'form': form})
-
-from django.shortcuts import render
-from .models import MensajeUsuario, Asunto
-
-from django.shortcuts import render, redirect
-from .models import MensajeUsuario, Asunto
 
 def contactanos(request):
     if request.method == "GET":

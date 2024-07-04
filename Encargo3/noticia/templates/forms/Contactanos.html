@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ titulo }}</title>
+    <title>EnviarMensajeContacto</title>
 </head>
 <body>
-    <h1>Agregar tipo de noticia (Deportes,Economia,Etc..)</h1>
+    <h1>EnviarMensajeContacto</h1>
 
-    <form action="{% url 'AgregarTipoNoticia' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'Contactanos' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form> 
 </body>
 </html>
-
