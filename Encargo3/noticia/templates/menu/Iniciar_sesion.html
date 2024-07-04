@@ -15,26 +15,22 @@
                     <form method="POST" action="{% url 'Iniciar_sesion' %}">
                         {% csrf_token %}
                         <div class="form-group">
-                            
+
                             Usuario:<input type="text" class="form-control" name="username">
                         </div>
-                        
-                    
+
+
                         <div class="form-group">
-                            
+
                             Contraseña:<input type="password" class="form-control"  name="password" >
                         </div>
 
-                       
+
                         <button type="submit" class="btn btn-primary btn-block d-flex justify-content-center align-items-center">Início</button>
 
                         {% if Error %}
                             <h3>  {{Error}}      </h3>
                         {% endif %}
-
-
-
-                      
                     </form>
                     <br/>
                     <div class="register-link">

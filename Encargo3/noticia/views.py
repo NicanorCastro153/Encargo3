@@ -140,76 +140,55 @@ def contactanos(request):
             motivo=motivo,
         )
         mensaje.save()
-        context = {'mensaje': '¡Datos grabados correctamente!'}
-        return render(request, 'menu/home.html', context)
-        context = {'mensaje': '¡Datos grabados correctamente!'}
-        return render(request, 'menu/home.html', context)
+
+        asuntos = Asunto.objects.all()
+        context = {
+            'asuntos': asuntos,
+            'mensaje': '¡Mensaje enviado correctamente!',
+            'alerta_tipo': 'success'
+        }
+        return render(request, 'menu/contactanos.html', context)
 
 
 
 def registrar(request):
     if request.method=='GET':
         return render(request,"menu/registrar.html",{'form':UserCreationForm})
-    if request.method=='GET':
-        return render(request,"menu/registrar.html",{'form':UserCreationForm})
     else:
-        if request.POST["password1"]!= request.POST["password2"]:
-            return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error':"las contraseñas no coinciden" })
         if request.POST["password1"]!= request.POST["password2"]:
             return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error':"las contraseñas no coinciden" })
         else:
             email= request.POST.get("email")
             name=request.POST.get("username")
-
-            email= request.POST.get("email")
             if User.objects.filter(email=email).exists():
                 print("el correo ya esta registrado")
                 return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "el correo ya esta registrado"})
             elif User.objects.filter(username=name).exists():
                 print("Usuario ya existente")
                 return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario ya existente"})
-                print("el correo ya esta registrado")
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "el correo ya esta registrado"})
 
             else:
-                
-                password= request.POST["password1"]
-                user= User.objects.create_user(username=name,password=password,email=email)
-                name=request.POST["username"]
+
                 password= request.POST["password1"]
                 user= User.objects.create_user(username=name,password=password,email=email)
                 user.save()
                 return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario Registrado"})
-            
-
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario Registrado"})
-            
-
 
 def Iniciar_sesion(request):
     if request.method=='GET':
 
-        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})      
-    
-    if request.method=='GET':
+        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})
 
-        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})      
-    
     else:
-        name=request.POST["username"]
-        password= request.POST["password"]
-        user=authenticate(username=name,password=password) 
         name=request.POST["username"]
         password= request.POST["password"]
         user=authenticate(username=name,password=password) 
         if user is None:
             return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
-            return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
         elif user.is_superuser:
             return redirect("PanelAdministrador")
         else: 
             return redirect("home")
-
       
 
    
