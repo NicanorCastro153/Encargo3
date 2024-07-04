@@ -143,8 +143,14 @@ def contactanos(request):
             motivo=motivo,
         )
         mensaje.save()
-        context = {'mensaje': '¡Datos grabados correctamente!'}
-        return render(request, 'menu/home.html', context)
+
+        asuntos = Asunto.objects.all()
+        context = {
+            'asuntos': asuntos,
+            'mensaje': '¡Mensaje enviado correctamente!',
+            'alerta_tipo': 'success'
+        }
+        return render(request, 'menu/contactanos.html', context)
 
 
 
