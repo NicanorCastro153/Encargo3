@@ -185,3 +185,7 @@ def Iniciar_sesion(request):
         else: 
             return redirect("home")
            
+def PanelAdministrador(request):
+    mensajes = MensajeUsuario.objects.all()
+    context = {'mensajes' : mensajes}
+    return render(request, 'admin/PanelAdministrador.html', context)
