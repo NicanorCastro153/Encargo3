@@ -9,35 +9,30 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-primary text-black text-center nav-item nav-link h3">Início de sesión </div>
+                <div class="card-header bg-primary text-black text-center nav-item nav-link h3">Inicio de sesión</div>
 
                 <div class="card-body">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert text-center" style="color: {% if message.tags == 'error' %}#a94442{% elif message.tags == 'success' %}#3c763d{% endif %}; background-color: {% if message.tags == 'error' %}#f2dede{% elif message.tags == 'success' %}#dff0d8{% endif %}; border-color: {% if message.tags == 'error' %}#ebccd1{% elif message.tags == 'success' %}#d6e9c6{% endif %}; padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px;">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <form method="POST" action="{% url 'Iniciar_sesion' %}">
                         {% csrf_token %}
                         <div class="form-group">
-                            
-                            Usuario:<input type="text" class="form-control" name="username">
+                            <label for="username">Usuario</label>
+                            <input type="text" class="form-control" name="username">
                         </div>
-                        
-                    
                         <div class="form-group">
-                            
-                            Contraseña:<input type="password" class="form-control"  name="password" >
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" name="password">
                         </div>
-
-                       
-                        <button type="submit" class="btn btn-primary btn-block d-flex justify-content-center align-items-center">Início</button>
-
-                        {% if Error %}
-                            <h3>  {{Error}}      </h3>
-                        {% endif %}
-
-
-
-                      
+                        <button type="submit" class="btn btn-primary btn-block d-flex justify-content-center align-items-center">Inicio</button>
                     </form>
                     <br/>
-                    <div class="register-link">
+                    <div class="register-link text-center">
                         <p>¿No tienes una cuenta? <a href="{% url 'registrar' %}">Regístrate aquí</a></p>
                     </div>
                 </div>

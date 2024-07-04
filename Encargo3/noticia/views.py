@@ -168,17 +168,21 @@ def registrar(request):
                 messages.success(request, "Usuario registrado exitosamente")
                 return render(request, 'menu/registrar.html', {'form': UserCreationForm()})
 
-def Iniciar_sesion(request):
-    if request.method=='GET':
+from django.contrib.auth import authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
-        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})      
-    
+def Iniciar_sesion(request):
+    if request.method == 'GET':
+        return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm()})
     else:
-        name=request.POST["username"]
-        password= request.POST["password"]
-        user=authenticate(username=name,password=password) 
+        name = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(username=name, password=password) 
         if user is None:
-            return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
+            messages.error(request, 'Usuario y/o Contraseña Incorrecta')
+            return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm()})
         elif user.is_superuser:
             return redirect("PanelAdministrador")
         else: 
