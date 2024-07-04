@@ -22,6 +22,3 @@ class NoticiaForm(ModelForm):
         model = Noticia
         fields= "__all__"      
 
-class UsuarioLoginForm(forms.Form):
-    nombre = forms.CharField(label='Nombre de usuario o email')
-    contraseña = forms.CharField(widget=forms.PasswordInput)        

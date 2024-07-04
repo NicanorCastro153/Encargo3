@@ -1,13 +1,14 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia, Usuario
+from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-from .forms import UsuarioLoginForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth.models import User
+
 0
 # Create your views here.
 
@@ -121,25 +122,7 @@ def Contactanos(request):
 
 
 
-def Iniciar_sesion(request):
-    if request.method == 'POST':
-        form = UsuarioLoginForm(request.POST)  
-        if form.is_valid():
-            nombre = form.cleaned_data['nombre']
-            contraseña = form.cleaned_data['contraseña']
 
-            # Authenticate user
-            user = authenticate(request, username=nombre, password=contraseña)
-
-            if user is not None:
-                login(request, user)
-                return redirect('home')  
-            else:
-                messages.error(request, 'Credenciales incorrectas.')
-    else:
-        form = UsuarioLoginForm()  
-
-    return render(request, 'menu/Iniciar_sesion.html', {'form': form})
 
 def contactanos(request):
     if request.method == "GET":
@@ -166,24 +149,39 @@ def contactanos(request):
 
 
 def registrar(request):
-
-    if request.method == 'POST':
-        nombre = request.POST['nombre']
-        email = request.POST['email']
-        fecha_nacimiento = request.POST['fecha_nacimiento']
-        contraseña = request.POST['password']
-
-        if Usuario.objects.filter(email=email).exists():
-            messages.error(request, 'El correo electrónico ya está registrado.')
-
+    if request.method=='GET':
+        return render(request,"menu/registrar.html",{'form':UserCreationForm})
+    else:
+        if request.POST["password1"]!= request.POST["password2"]:
+            return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error':"las contraseñas no coinciden" })
         else:
-            Usuario.objects.create(
-                nombre=nombre,
-                email=email,
-                fecha_nacimiento=fecha_nacimiento,
-                contraseña=contraseña
-            )
-            messages.success(request, 'Usuario registrado exitosamente.')
-            return redirect(('registrar'))  
+            email= request.POST.get("email")
+            if User.objects.filter(email=email).exists():
+                print("el correo ya esta registrado")
+                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "el correo ya esta registrado"})
 
-    return render(request, 'menu/registrar.html')
+            else:
+                name=request.POST["username"]
+                password= request.POST["password1"]
+                user= User.objects.create_user(username=name,password=password,email=email)
+                user.save()
+                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario Registrado"})
+            
+
+
+def Iniciar_sesion(request):
+    if request.method=='GET':
+
+        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})      
+    
+    else:
+        name=request.POST["username"]
+        password= request.POST["password"]
+        user=authenticate(username=name,password=password) 
+        if user is None:
+            return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
+        elif user.is_super_user:
+            return redirect("Paneladministrador")
+        else: 
+            return redirect("home")
+           

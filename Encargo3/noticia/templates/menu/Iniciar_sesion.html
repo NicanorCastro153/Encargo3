@@ -9,20 +9,32 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-primary text-white text-center h3">Iniciar Sesión</div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
+                <div class="card-header bg-primary text-black text-center nav-item nav-link h3">Início de sesión </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-                        {% if messages %}
-                            <div class="alert alert-danger mt-3">
-                                {% for message in messages %}
-                                    <p>{{ message }}</p>
-                                {% endfor %}
-                            </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'Iniciar_sesion' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            
+                            Usuario:<input type="text" class="form-control" name="username">
+                        </div>
+                        
+                    
+                        <div class="form-group">
+                            
+                            Contraseña:<input type="password" class="form-control"  name="password" >
+                        </div>
+
+                       
+                        <button type="submit" class="btn btn-primary btn-block d-flex justify-content-center align-items-center">Início</button>
+
+                        {% if Error %}
+                            <h3>  {{Error}}      </h3>
                         {% endif %}
+
+
+
+                      
                     </form>
                     <br/>
                     <div class="register-link">
