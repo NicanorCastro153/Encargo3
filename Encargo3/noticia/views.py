@@ -149,25 +149,24 @@ def contactanos(request):
 
 
 def registrar(request):
-    if request.method=='GET':
-        return render(request,"menu/registrar.html",{'form':UserCreationForm})
+    if request.method == 'GET':
+        return render(request, "menu/registrar.html", {'form': UserCreationForm()})
     else:
-        if request.POST["password1"]!= request.POST["password2"]:
-            return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error':"las contraseñas no coinciden" })
+        if request.POST["password1"] != request.POST["password2"]:
+            messages.error(request, "Las contraseñas no coinciden")
+            return render(request, 'menu/registrar.html', {'form': UserCreationForm()})
         else:
-            email= request.POST.get("email")
+            email = request.POST.get("email")
             if User.objects.filter(email=email).exists():
-                print("el correo ya esta registrado")
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "el correo ya esta registrado"})
-
+                messages.error(request, "El correo ya está registrado")
+                return render(request, 'menu/registrar.html', {'form': UserCreationForm()})
             else:
-                name=request.POST["username"]
-                password= request.POST["password1"]
-                user= User.objects.create_user(username=name,password=password,email=email)
+                name = request.POST["username"]
+                password = request.POST["password1"]
+                user = User.objects.create_user(username=name, password=password, email=email)
                 user.save()
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario Registrado"})
-            
-
+                messages.success(request, "Usuario registrado exitosamente")
+                return render(request, 'menu/registrar.html', {'form': UserCreationForm()})
 
 def Iniciar_sesion(request):
     if request.method=='GET':
