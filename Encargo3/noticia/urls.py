@@ -10,7 +10,6 @@ urlpatterns = [
     path('deporte',views.deporte, name='deporte'),
     path('economia',views.economia, name='economia'),
     path('Iniciar_sesion', views.Iniciar_sesion, name='Iniciar_sesion'),
-    path('registrar', views.registrar, name='registrar'),
     #noticias
     path('noticiaArsenal',views.noticiaArsenal, name='noticiaArsenal'),
     path('noticiaBasketball',views.noticiaBasketball, name='noticiaBasketball'),
@@ -21,11 +20,13 @@ urlpatterns = [
     path('noticiaTenis',views.noticiaTenis, name='noticiaTenis'),
     path('noticiaLula',views.noticiaLula, name='noticiaLula'),
     path('noticiaEli',views.noticiaeli, name='noticiaeli'),
-    #admin
+    #Forms
     path('AgregarNoticia',views.AgregarNoticia, name='AgregarNoticia'),
     path('AgregarTipoNoticia',views.AgregarTipoNoticia, name='AgregarTipoNoticia'),
     path('AgregarAsunto',views.AgregarAsunto, name='AgregarAsunto'),
     path('Contactanos',views.Contactanos, name='Contactanos'),
     
+    #Admin
+    path('PanelAdministrador',views.PanelAdministrador,name='PanelAdministrador')
 
 ]

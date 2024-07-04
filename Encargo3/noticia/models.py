@@ -35,12 +35,3 @@ class Noticia(models.Model):
 
     def __str__(self):
         return str(self.titulo)
-
-class Usuario(models.Model):
-    id_usuario= models.AutoField(primary_key=True, null=False)
-    nombre=models.CharField(max_length=40,blank=False,null=False)
-    contraseña=models.CharField(max_length=40,blank=False,null=False)
-    email= models.EmailField(unique=True, blank=False, null=False)
-    fecha_nacimiento = models.DateField(blank=False, null=False) 
-    def _str_(self):
-        return str(self.nombre)

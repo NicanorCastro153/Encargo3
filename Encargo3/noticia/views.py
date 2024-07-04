@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia, Usuario
+from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -163,27 +163,7 @@ def contactanos(request):
         context = {'mensaje': '¡Datos grabados correctamente!'}
         return render(request, 'menu/home.html', context)
 
-
-
-def registrar(request):
-
-    if request.method == 'POST':
-        nombre = request.POST['nombre']
-        email = request.POST['email']
-        fecha_nacimiento = request.POST['fecha_nacimiento']
-        contraseña = request.POST['password']
-
-        if Usuario.objects.filter(email=email).exists():
-            messages.error(request, 'El correo electrónico ya está registrado.')
-
-        else:
-            Usuario.objects.create(
-                nombre=nombre,
-                email=email,
-                fecha_nacimiento=fecha_nacimiento,
-                contraseña=contraseña
-            )
-            messages.success(request, 'Usuario registrado exitosamente.')
-            return redirect(('registrar'))  
-
-    return render(request, 'menu/registrar.html')
+def PanelAdministrador(request):
+    mensajes = MensajeUsuario.objects.all()
+    context = {'mensajes': mensajes}
+    return render(request, 'admin/PanelAdministrador.html', context)
