@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Ultimas Noticias
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Listado de Noticias</h1>
+    <div class="row">
+      {% for noticia in noticias %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><a href="#" style="color: black;">{{ noticia.titulo }}</a></h5>
+            <p class="card-text">{{ noticia.tipo }}</p>
+            <p class="card-text">{{ noticia.descripcion }}</p>
+            <button class="btn btn-primary"> Ver Noticia</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

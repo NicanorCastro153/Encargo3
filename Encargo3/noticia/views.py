@@ -120,10 +120,6 @@ def Contactanos(request):
 
     return render(request, 'forms/Contactanos.html', {'form': form})
 
-
-
-
-
 def contactanos(request):
     if request.method == "GET":
         asuntos = Asunto.objects.all()
@@ -184,8 +180,36 @@ def Iniciar_sesion(request):
             return redirect("PanelAdministrador")
         else: 
             return redirect("home")
-           
+        
 def PanelAdministrador(request):
     mensajes = MensajeUsuario.objects.all()
-    context = {'mensajes' : mensajes}
+    noticias = Noticia.objects.all()
+    tipos = TipoNoticia.objects.all()
+    
+    context = {
+        'mensajes': mensajes,
+        'noticias': noticias,
+        'tipos': tipos
+    }
+    if request.method == 'POST':
+        titulo = request.POST.get("titulo")
+        descripcion = request.POST.get("descripcion")
+        tipo_id = request.POST.get("tipo")
+        imagen = request.FILES.get("imagen")
+        tipo_noticia = TipoNoticia.objects.get(pk=tipo_id)
+        nueva_noticia = Noticia(
+            titulo=titulo,
+            descripcion=descripcion,
+            tipo=tipo_noticia,
+            imagen=imagen
+        )
+        nueva_noticia.save()
+        return redirect('PanelAdministrador')
+    
     return render(request, 'admin/PanelAdministrador.html', context)
+
+
+def ultimas_noticias(request):
+    noticias = Noticia.objects.all()
+    context = {'noticias': noticias}
+    return render(request, 'menu/ultimas_noticias.html',context)

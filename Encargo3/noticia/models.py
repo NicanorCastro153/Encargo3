@@ -30,6 +30,7 @@ class TipoNoticia(models.Model):
 class Noticia(models.Model):
     id_noticia = models.AutoField(primary_key=True,null=False)
     titulo = models.CharField(max_length=40,blank=False,null=False)
+    descripcion = models.TextField(max_length=200,default='')
     tipo = models.ForeignKey(TipoNoticia,on_delete=models.CASCADE,db_column='idTipo',null=False)
     imagen = models.ImageField(upload_to='images/',null=False)
 

@@ -9,6 +9,7 @@ urlpatterns = [
     path('contactanos',views.contactanos, name='contactanos'),
     path('deporte',views.deporte, name='deporte'),
     path('economia',views.economia, name='economia'),
+    path('ultimas_noticias',views.ultimas_noticias, name='ultimas_noticias'),
     #noticias
     path('noticiaArsenal',views.noticiaArsenal, name='noticiaArsenal'),
     path('noticiaBasketball',views.noticiaBasketball, name='noticiaBasketball'),
