@@ -172,16 +172,14 @@ def registrar(request):
             
             
 def Iniciar_sesion(request):
-    if request.method=='GET':
-
-        return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm})
-
+    if request.method == 'GET':
+        return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm()})
     else:
-        name=request.POST["username"]
-        password= request.POST["password"]
-        user=authenticate(username=name,password=password) 
+        name = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(username=name, password=password) 
         if user is None:
-            return render(request, 'menu/Iniciar_sesion.html',{'form':AuthenticationForm,'Error':'Usuario y/o Contraseña Incorrecta'})
+            return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm(), 'Error': 'Usuario y/o Contraseña Incorrecta'})
         elif user.is_superuser:
             return redirect("PanelAdministrador")
         else: 
