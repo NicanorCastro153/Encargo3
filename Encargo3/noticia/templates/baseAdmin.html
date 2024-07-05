@@ -34,7 +34,7 @@
                           <a class="nav-link text-body small" href="{% url 'contactanos'%}">Contacto</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-body small" href="{% url 'Iniciar_sesion'%}">Iniciar Sesion</a>
+                          <a class="nav-link text-body small" href="{% url 'home'%}">Cerrar sesion</a>
                       </li>
                   </ul>
               </nav>
@@ -88,7 +88,8 @@
                 <a href="{% url 'economia' %}" class="nav-item nav-link {% if request.path == '/economia/' %}active{% endif %}">Economía</a>
                 <a href="{% url 'deporte' %}" class="nav-item nav-link {% if request.path == '/deporte/' %}active{% endif %}">Deportes</a>
                 <a href="{% url 'contactanos' %}" class="nav-item nav-link {% if request.path == '/contactanos/' %}active{% endif %}">Contáctanos</a>
-                <a href="{% url 'ultimas_noticias' %}" class="nav-item nav-link {% if request.path == '/ultimas_noticias/' %}active{% endif %}">ultimas noticias</a>
+                <a href="{% url 'ultimas_noticias' %}" class="nav-item nav-link {% if request.path == '/ultimas_noticias/' %}active{% endif %}">ultimas_noticias</a>
+                <a href="{% url 'PanelAdministrador' %}" class="nav-item nav-link {% if request.path == '/PanelAdministrador/' %}active{% endif %}">Administracion</a>
                 </div>
             </div>
             
