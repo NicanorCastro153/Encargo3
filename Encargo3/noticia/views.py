@@ -9,8 +9,6 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
 
-
-0
 # Create your views here.
 
 # opciones navbar

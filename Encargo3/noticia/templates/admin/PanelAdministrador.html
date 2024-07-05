@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Ver mensajes-->
 <div class="container mx-auto mt-5">
     <div class="row">
         <div class="col">
@@ -16,7 +18,7 @@
 </div>
 
 <div class="container mt-4">
-    <div id="Mensajes">
+    <div id="Mensajes" style="display: none;">
         <table class="table table-striped table-hover">
             <thead class="thead-dark bg-primary text-white">
                 <tr>
@@ -41,10 +43,12 @@
         </table>
     </div>
 </div>
+
+<!-- Crear Noticias-->
 <div class="container mx-auto mt-5">
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary" id="VerMensajes">Crear Noticia</button>
+            <button type="button" class="btn btn-primary" id="VerNoticia">Crear Noticia</button>
         </div>
     </div>
 </div>
@@ -55,15 +59,15 @@
       {% csrf_token %}
       <div class="form-group">
         <label for="id_titulo">Título:</label>
-        <input type="text" class="form-control"name="titulo" required>
+        <input type="text" class="form-control" name="titulo" required>
       </div>
       <div class="form-group">
         <label for="id_descripcion">Descripción:</label>
-        <textarea class="form-control"name="descripcion" rows="3"></textarea>
+        <textarea class="form-control" name="descripcion" rows="3"></textarea>
       </div>
       <div class="form-group">
         <label for="id_tipo">Tipo de Noticia:</label>
-        <select class="form-control" name="tipo"required>
+        <select class="form-control" name="tipo" required>
             <option value="">Selecciona un asunto</option>
             {% for tipo in tipos %}
             <option value="{{ tipo.id_tipo }}">{{ tipo.tipo }}</option>
@@ -76,5 +80,5 @@
       </div>
       <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-  </div>
+</div>
 {% endblock %}
