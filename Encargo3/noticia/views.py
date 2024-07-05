@@ -152,28 +152,25 @@ def contactanos(request):
 
 
 def registrar(request):
-    if request.method=='GET':
-        return render(request,"menu/registrar.html",{'form':UserCreationForm})
+    if request.method == 'GET':
+        return render(request, "menu/registrar.html", {'form': UserCreationForm})
     else:
-        if request.POST["password1"]!= request.POST["password2"]:
-            return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error':"las contraseñas no coinciden" })
+        if request.POST["password1"] != request.POST["password2"]:
+            return render(request, 'menu/registrar.html', {'form': UserCreationForm, 'Error': "Las contraseñas no coinciden"})
         else:
-            email= request.POST.get("email")
-            name=request.POST.get("username")
+            email = request.POST.get("email")
+            name = request.POST.get("username")
             if User.objects.filter(email=email).exists():
-                print("el correo ya esta registrado")
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "el correo ya esta registrado"})
+                return render(request, 'menu/registrar.html', {'form': UserCreationForm, 'Error': "El correo ya está registrado"})
             elif User.objects.filter(username=name).exists():
-                print("Usuario ya existente")
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario ya existente"})
-
+                return render(request, 'menu/registrar.html', {'form': UserCreationForm, 'Error': "Usuario ya existente"})
             else:
-
-                password= request.POST["password1"]
-                user= User.objects.create_user(username=name,password=password,email=email)
+                password = request.POST["password1"]
+                user = User.objects.create_user(username=name, password=password, email=email)
                 user.save()
-                return render(request, 'menu/registrar.html',{'form':UserCreationForm,'Error': "Usuario Registrado"})
-
+                return render(request, 'menu/registrar.html', {'form': UserCreationForm, 'Success': "Usuario Registrado"})
+            
+            
 def Iniciar_sesion(request):
     if request.method=='GET':
 

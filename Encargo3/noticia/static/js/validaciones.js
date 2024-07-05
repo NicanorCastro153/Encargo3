@@ -58,4 +58,31 @@ $(document).ready(function () {
     });
 });
 
-// ESTE CODIGO NO ESTA ACTUALIZADO
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("registrationForm").onsubmit = function() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password1 = document.getElementById("password1").value;
+        var password2 = document.getElementById("password2").value;
+
+        if (password1 !== password2) {
+            alert("Las contraseñas no coinciden");
+            return false;
+        }
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Por favor, ingrese un correo electrónico válido");
+            return false;
+        }
+
+        if (username === "" || email === "" || password1 === "" || password2 === "") {
+            alert("Todos los campos son obligatorios");
+            return false;
+        }
+
+        return true;
+    };
+});
