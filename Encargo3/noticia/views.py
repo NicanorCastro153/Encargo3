@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
@@ -190,12 +190,6 @@ def PanelAdministrador(request):
     mensajes = MensajeUsuario.objects.all()
     noticias = Noticia.objects.all()
     tipos = TipoNoticia.objects.all()
-    
-    context = {
-        'mensajes': mensajes,
-        'noticias': noticias,
-        'tipos': tipos
-    }
     if request.method == 'POST':
         titulo = request.POST.get("titulo")
         descripcion = request.POST.get("descripcion")
@@ -210,7 +204,27 @@ def PanelAdministrador(request):
         )
         nueva_noticia.save()
         return redirect('PanelAdministrador')
-    
+    context={
+        'noticias': noticias,
+        'mensajes': mensajes,
+        'tipos': tipos
+    }
+    return render(request, 'admin/PanelAdministrador.html', context)
+
+def noticia_del(request, pk):
+    context = {}
+    try:
+        noticia = get_object_or_404(Noticia, id_noticia=pk)
+        noticia.delete()
+        noticias = Noticia.objects.all()
+        context = {'noticias': noticias
+                   }
+        redirect('menu/home')
+    except Noticia.DoesNotExist:
+
+        noticias = Noticia.objects.all()
+        context = {'noticias': noticias
+                   }
     return render(request, 'admin/PanelAdministrador.html', context)
 
 

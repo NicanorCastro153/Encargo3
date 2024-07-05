@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-4" style="display: none;" id="ContenedorMensajes">
     <div id="Mensajes" class="table-responsive">
         <table class="table table-striped table-hover">
             <thead class="thead-dark bg-primary text-white">
@@ -43,21 +43,16 @@
         </table>
     </div>
 </div>
-
-<<<<<<< HEAD
-<!-- Crear Noticias-->
-=======
->>>>>>> dfea03324240e5755904daed7cf6c34cf6b460eb
+<!-- Crear Noticia-->
 <div class="container mx-auto mt-5">
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary" id="VerNoticia">Crear Noticia</button>
+            <button type="button" class="btn btn-primary" id="CrearNoticia">Crear Noticia</button>
         </div>
     </div>
 </div>
 
-<div class="container mt-4">
-    <h1>Crear Noticia</h1>
+<div class="container mt-4" id="Noticia" style="display: none;">
     <form action="{% url 'PanelAdministrador' %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
@@ -71,7 +66,7 @@
       <div class="form-group">
         <label for="id_tipo">Tipo de Noticia:</label>
         <select class="form-control" name="tipo" required>
-            <option value="">Selecciona un asunto</option>
+            <option value="">Selecciona el Tipo de noticia</option>
             {% for tipo in tipos %}
             <option value="{{ tipo.id_tipo }}">{{ tipo.tipo }}</option>
             {% endfor %}
@@ -84,8 +79,34 @@
       <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
-<<<<<<< HEAD
+
+<!-- Ver Noticias-->
+<div class="container mx-auto mt-5">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" id="VerNoticias">Ver Noticias</button>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" id="Noticias" style="display: none;">
+    <div class="row">
+      {% for noticia in noticias %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><a href="#" style="color: black;">{{ noticia.titulo }}</a></h5>
+            <p class="card-text">{{ noticia.tipo }}</p>
+            <p class="card-text">{{ noticia.descripcion }}</p>
+            <!-- Botón para eliminar -->
+            <button><a href="{% url 'noticia_del' pk=noticia.id_noticia %}">Eliminar</a></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> dfea03324240e5755904daed7cf6c34cf6b460eb

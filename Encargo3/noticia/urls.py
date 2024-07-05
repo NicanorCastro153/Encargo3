@@ -29,6 +29,6 @@ urlpatterns = [
     path('Iniciar_sesion', views.Iniciar_sesion, name='Iniciar_sesion'),
     path('registrar', views.registrar, name='registrar'),
     #Admin
-    path('PanelAdministrador',views.PanelAdministrador,name='PanelAdministrador')
-
+    path('PanelAdministrador',views.PanelAdministrador,name='PanelAdministrador'),
+    path('noticia_del/<str:pk>', views.noticia_del, name='noticia_del'),
 ]
