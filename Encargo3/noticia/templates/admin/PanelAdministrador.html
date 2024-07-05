@@ -1,22 +1,29 @@
-{% extends "baseAdmin.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 
 {% block title %}
-    PanelAministrador
+    Panel Administrador
 {% endblock %}
 
 {% block content %}
 
-<!-- Ver mensajes-->
-<div class="container mx-auto mt-5">
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-primary" id="VerMensajes">Ver Mensajes</button>
+<!-- Botones de acciones -->
+<div class="container mx-auto mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-3 mb-2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="VerMensajes">Ver Mensajes</button>
+        </div>
+        <div class="col-12 col-md-3 mb-2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="CrearNoticia">Crear Noticia</button>
+        </div>
+        <div class="col-12 col-md-3 mb-2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="VerNoticias">Ver Noticias</button>
         </div>
     </div>
 </div>
 
+<!-- Contenedor de mensajes -->
 <div class="container mt-4" style="display: none;" id="ContenedorMensajes">
     <div id="Mensajes" class="table-responsive">
         <table class="table table-striped table-hover">
@@ -43,70 +50,61 @@
         </table>
     </div>
 </div>
-<!-- Crear Noticia-->
-<div class="container mx-auto mt-5">
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-primary" id="CrearNoticia">Crear Noticia</button>
-        </div>
-    </div>
-</div>
 
+<!-- Formulario de creación de noticias -->
 <div class="container mt-4" id="Noticia" style="display: none;">
     <form action="{% url 'PanelAdministrador' %}" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="id_titulo">Título:</label>
-        <input type="text" class="form-control" name="titulo" required>
-      </div>
-      <div class="form-group">
-        <label for="id_descripcion">Descripción:</label>
-        <textarea class="form-control" name="descripcion" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="id_tipo">Tipo de Noticia:</label>
-        <select class="form-control" name="tipo" required>
-            <option value="">Selecciona el Tipo de noticia</option>
-            {% for tipo in tipos %}
-            <option value="{{ tipo.id_tipo }}">{{ tipo.tipo }}</option>
-            {% endfor %}
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="id_imagen">Imagen:</label>
-        <input type="file" class="form-control-file" name="imagen" accept="image/*" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_titulo">Título:</label>
+            <input type="text" class="form-control" name="titulo" required>
+        </div>
+        <div class="form-group">
+            <label for="id_descripcion">Descripción:</label>
+            <textarea class="form-control" name="descripcion" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="id_tipo">Tipo de Noticia:</label>
+            <select class="form-control" name="tipo" required>
+                <option value="">Selecciona el Tipo de noticia</option>
+                {% for tipo in tipos %}
+                <option value="{{ tipo.id_tipo }}">{{ tipo.tipo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_imagen">Imagen:</label>
+            <input type="file" class="form-control-file" name="imagen" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 
-<!-- Ver Noticias-->
-<div class="container mx-auto mt-5">
+<!-- Contenedor de noticias -->
+<div class="container mt-4" id="Noticias" style="display: none;">
     <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-primary" id="VerNoticias">Ver Noticias</button>
+        {% for noticia in noticias %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#" style="color: black;">{{ noticia.titulo }}</a></h5>
+                    <p class="card-text">{{ noticia.tipo }}</p>
+                    <p class="card-text">{{ noticia.descripcion }}</p>
+                    <!-- Botón para eliminar -->
+                    <button><a href="{% url 'noticia_del' pk=noticia.id_noticia %}">Eliminar</a></button>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
-<div class="container mt-4" id="Noticias" style="display: none;">
-    <div class="row">
-      {% for noticia in noticias %}
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><a href="#" style="color: black;">{{ noticia.titulo }}</a></h5>
-            <p class="card-text">{{ noticia.tipo }}</p>
-            <p class="card-text">{{ noticia.descripcion }}</p>
-            <!-- Botón para eliminar -->
-            <button><a href="{% url 'noticia_del' pk=noticia.id_noticia %}">Eliminar</a></button>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 {% endblock %}

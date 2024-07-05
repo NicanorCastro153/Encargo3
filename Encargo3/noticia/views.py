@@ -173,28 +173,36 @@ def Iniciar_sesion(request):
     if request.method == 'GET':
         return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm()})
     else:
-        name = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(username=name, password=password) 
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
         if user is None:
             return render(request, 'menu/Iniciar_sesion.html', {'form': AuthenticationForm(), 'Error': 'Usuario y/o Contraseña Incorrecta'})
-        elif user.is_superuser:
-            return redirect("PanelAdministrador")
-        else: 
-            return redirect("home")
+        else:
+            login(request, user)
+            if user.is_superuser:
+                return redirect('PanelAdministrador')
+            else:
+                return redirect('home')
+            
+def logout_view(request):
+    logout(request)
+    return redirect('home')
       
-
-   
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login, logout
         
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def PanelAdministrador(request):
     mensajes = MensajeUsuario.objects.all()
     noticias = Noticia.objects.all()
     tipos = TipoNoticia.objects.all()
     if request.method == 'POST':
-        titulo = request.POST.get("titulo")
-        descripcion = request.POST.get("descripcion")
-        tipo_id = request.POST.get("tipo")
-        imagen = request.FILES.get("imagen")
+        titulo = request.POST['titulo']
+        descripcion = request.POST['descripcion']
+        tipo_id = request.POST['tipo']
+        imagen = request.FILES['imagen']
         tipo_noticia = TipoNoticia.objects.get(pk=tipo_id)
         nueva_noticia = Noticia(
             titulo=titulo,
@@ -204,7 +212,7 @@ def PanelAdministrador(request):
         )
         nueva_noticia.save()
         return redirect('PanelAdministrador')
-    context={
+    context = {
         'noticias': noticias,
         'mensajes': mensajes,
         'tipos': tipos

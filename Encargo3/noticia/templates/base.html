@@ -33,9 +33,15 @@
                       <li class="nav-item border-right border-secondary">
                           <a class="nav-link text-body small" href="{% url 'contactanos'%}">Contacto</a>
                       </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-body small" href="{% url 'Iniciar_sesion'%}">Iniciar Sesion</a>
-                      </li>
+                      {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link text-body small" href="{% url 'logout' %}">Cerrar sesión</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-body small" href="{% url 'Iniciar_sesion' %}">Iniciar sesión</a>
+                        </li>
+                        {% endif %}
                   </ul>
               </nav>
           </div>
@@ -72,8 +78,8 @@
           </div>
       </div>
   </div>
-  <!-- Navbar-->
-  <div class="container-fluid p-0">
+ <!-- Navbar -->
+<div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
         <a href="{% url 'home' %}" class="navbar-brand d-block d-lg-none">
             <h1 class="m-0 display-4 text-uppercase text-primary">CL<span class="text-white font-weight-normal">News</span></h1>
@@ -88,10 +94,11 @@
                 <a href="{% url 'economia' %}" class="nav-item nav-link {% if request.path == '/economia/' %}active{% endif %}">Economía</a>
                 <a href="{% url 'deporte' %}" class="nav-item nav-link {% if request.path == '/deporte/' %}active{% endif %}">Deportes</a>
                 <a href="{% url 'contactanos' %}" class="nav-item nav-link {% if request.path == '/contactanos/' %}active{% endif %}">Contáctanos</a>
-                <a href="{% url 'ultimas_noticias' %}" class="nav-item nav-link {% if request.path == '/ultimas_noticias/' %}active{% endif %}">ultimas noticias</a>
-                </div>
-            </div>
-            
+                <a href="{% url 'ultimas_noticias' %}" class="nav-item nav-link {% if request.path == '/ultimas_noticias/' %}active{% endif %}">Últimas Noticias</a>
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'PanelAdministrador' %}" class="nav-item nav-link {% if request.path == '/PanelAdministrador/' %}active{% endif %}">Administración</a>
+                {% endif %}
             </div>
         </div>
     </nav>

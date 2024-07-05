@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from noticia import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('noticia/',include('noticia.urls')),
+    path('', include('noticia.urls')),
+    path('logout/', views.logout_view, name='logout'),
+    path('Iniciar_sesion/', views.Iniciar_sesion, name='Iniciar_sesion'),\
 ]
 
 # config de ruta de carpeta media
