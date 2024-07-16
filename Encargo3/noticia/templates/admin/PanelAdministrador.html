@@ -86,13 +86,15 @@
         {% for noticia in noticias %}
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="...">
+                <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="..." width="440px" height="220px">
                 <div class="card-body">
                     <h5 class="card-title"><a href="#" style="color: black;">{{ noticia.titulo }}</a></h5>
                     <p class="card-text">{{ noticia.tipo }}</p>
                     <p class="card-text">{{ noticia.descripcion }}</p>
                     <!-- Botón para eliminar -->
-                    <button><a href="{% url 'noticia_del' pk=noticia.id_noticia %}">Eliminar</a></button>
+                    <button  class="btn btn-primary"><a href="{% url 'noticia_del' pk=noticia.id_noticia %}" style="text-decoration: none; color: black;">Eliminar</a></button>
+                    <button class="btn btn-primary"><a href="{% url 'buscar_noticia' pk=noticia.id_noticia %}" style="text-decoration: none; color: black;">Modificar</a></button>
+
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login, logout
 from .models import Asunto, MensajeUsuario, Noticia, TipoNoticia
 from .forms import AsuntoForm, MensajeUsuarioForm, NoticiaForm, TipoNoticiaForm
 from django.shortcuts import render, redirect
@@ -189,8 +190,6 @@ def logout_view(request):
     logout(request)
     return redirect('home')
       
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth import authenticate, login, logout
         
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
@@ -240,3 +239,44 @@ def ultimas_noticias(request):
     noticias = Noticia.objects.all()
     context = {'noticias': noticias}
     return render(request, 'menu/ultimas_noticias.html',context)
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def buscar_noticia(request, pk):
+    if pk!="":
+       noticia=Noticia.objects.get(id_noticia=pk)
+       tipos = TipoNoticia.objects.all()
+       id_tipo_ = noticia.tipo.tipo  
+       context={
+           "noticia":noticia,
+            "tipos": tipos, 
+            "id_tipo_": id_tipo_
+            }
+    if noticia:
+        return render(request, 'admin/buscar_noticia.html', context)
+    else:
+        context={"mensaje": "Error, no existe el rut..."}
+        return render(request, 'admin/buscar_noticia.html', context)
+    
+
+def modificar_noticia(request, pk):
+    noticia = Noticia.objects.get(id_noticia=pk)
+    tipos = TipoNoticia.objects.all()
+
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descripcion = request.POST.get('descripcion')
+        tipo_id = request.POST.get('tipo')
+        imagen = request.FILES.get('imagen')
+        noticia.titulo = titulo
+        noticia.descripcion = descripcion
+        noticia.tipo_id = tipo_id
+        if imagen:
+            noticia.imagen = imagen
+        noticia.save()
+        return redirect('PanelAdministrador')
+    context = {
+        'noticia': noticia,
+        'tipos': tipos,
+    }
+    return render(request, 'admin/buscar_noticia.html', context)    

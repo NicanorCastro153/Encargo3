@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Panel Administrador
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" id="Noticia">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="{% url 'modificar_noticia' noticia.id_noticia %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_titulo">Título:</label>
+                    <input type="text" class="form-control" id="id_titulo" name="titulo" value="{{ noticia.titulo }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_descripcion">Descripción:</label>
+                    <textarea class="form-control" id="id_descripcion" name="descripcion" rows="3">{{ noticia.descripcion }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="id_tipo">Tipo de Noticia:</label>
+                    <select class="form-control" id="id_tipo" name="tipo" required>
+                        <!-- Opción preseleccionada con el tipo actual de la noticia -->
+                        <option value="{{ noticia.tipo.id_tipo }}">{{ noticia.tipo.tipo }}</option>
+                    
+                        <!-- Iteración sobre todos los tipos disponibles -->
+                        {% for tipo in tipos %}
+                        <option value="{{ tipo.id_tipo }}">{{ tipo.tipo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id_imagen">Imagen:</label><br>
+                    <img src="{{ noticia.imagen.url }}" alt="Imagen de la noticia" width="440px" height="220px">
+                    <input type="file" class="form-control-file mt-3" value="{{ noticia.imagen.url }}" id="id_imagen" name="imagen" accept="image/*">
+                </div>
+                <div class="text-center">  <!-- Agregado para centrar los botones -->
+                    <button class="btn btn-primary mr-2"><a href="{% url 'PanelAdministrador' %}" style="text-decoration: none; color: black;">Volver</a></button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

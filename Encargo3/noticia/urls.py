@@ -26,4 +26,6 @@ urlpatterns = [
     path('registrar', views.registrar, name='registrar'),
     path('PanelAdministrador', views.PanelAdministrador, name='PanelAdministrador'),
     path('noticia_del/<str:pk>', views.noticia_del, name='noticia_del'),
+    path('buscar_noticia/<str:pk>', views.buscar_noticia, name='buscar_noticia'),
+    path('modificar_noticia/<int:pk>/', views.modificar_noticia, name='modificar_noticia'),
 ]
