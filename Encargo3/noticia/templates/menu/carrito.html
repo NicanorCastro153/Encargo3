@@ -1,0 +1,59 @@
+<!-- carrito.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    {% if messages %}
+    <div class="row">
+        <div class="col">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Carrito de Compras</h2>
+            <ul class="list-group list-group-flush">
+                {% for item in carrito_items %}
+                <li class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6">
+                            <h5 class="card-title mb-0">{{ item.suscripcion.titulo }}</h5>
+                            <p class="card-text mb-0">Cantidad: {{ item.cantidad }}</p>
+                        </div>
+                        <div class="col-6 col-md-3 text-md-end">
+                            <span class="font-weight-bold">${{ item.suscripcion.precio|floatformat:0 }}</span>
+                        </div>
+                        <div class="col-6 col-md-3 text-md-end">
+                            <form method="post" action="{% url 'eliminar_del_carrito' item.id %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title mb-0">Total:</h5>
+                    </div>
+                    <div>
+                        <span class="font-weight-bold">${{ total|floatformat:2 }}</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="card-footer text-center">
+                <a href="{% url 'pagar' %}" class="btn btn-success btn-lg">Pagar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

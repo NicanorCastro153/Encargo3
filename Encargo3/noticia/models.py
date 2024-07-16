@@ -36,3 +36,29 @@ class Noticia(models.Model):
 
     def __str__(self):
         return str(self.titulo)
+    
+    
+from django.db import models
+from django.contrib.auth.models import User
+
+class Suscripcion(models.Model):
+    titulo = models.CharField(max_length=100)
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='suscripciones/')
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.titulo
+
+class Carrito(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    suscripcion = models.ForeignKey(Suscripcion, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.usuario.username} - {self.suscripcion.titulo}"
+
+    
+
+    
+    

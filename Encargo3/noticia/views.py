@@ -38,6 +38,8 @@ def Iniciar_sesion(request):
     return render(request, 'menu/Iniciar_sesion.html',context)
 
 
+
+
 # noticias
 def noticiaArsenal(request):
     context={}
@@ -280,3 +282,52 @@ def modificar_noticia(request, pk):
         'tipos': tipos,
     }
     return render(request, 'admin/buscar_noticia.html', context)    
+
+
+
+# views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Suscripcion, Carrito
+from django.contrib import messages
+
+# views.py
+from .models import Suscripcion
+
+def suscribirse(request):
+    suscripciones = Suscripcion.objects.all()
+    context = {
+        'products': suscripciones  # Asegúrate de que el nombre coincida con el usado en la plantilla
+    }
+    return render(request, 'menu/suscribirse.html', context)
+
+
+@login_required
+def agregar_al_carrito(request, suscripcion_id):
+    suscripcion = get_object_or_404(Suscripcion, id=suscripcion_id)
+    carrito_item, created = Carrito.objects.get_or_create(usuario=request.user, suscripcion=suscripcion)
+    if not created:
+        carrito_item.cantidad += 1
+        carrito_item.save()
+    messages.success(request, '¡Suscripción agregada al carrito!')
+    return redirect('suscribirse')
+
+@login_required
+def carrito(request):
+    carrito_items = Carrito.objects.filter(usuario=request.user)
+    total = sum(item.suscripcion.precio * item.cantidad for item in carrito_items)
+    context = {'carrito_items': carrito_items, 'total': total}
+    return render(request, 'menu/carrito.html', context)
+
+@login_required
+def pagar(request):
+    Carrito.objects.filter(usuario=request.user).delete()
+    messages.success(request, '¡Felicidades! Su compra se realizó con éxito.')
+    return redirect('carrito')
+
+@login_required
+def eliminar_del_carrito(request, carrito_item_id):
+    carrito_item = get_object_or_404(Carrito, id=carrito_item_id, usuario=request.user)
+    carrito_item.delete()
+    messages.success(request, 'Producto eliminado del carrito.')
+    return redirect('carrito')
