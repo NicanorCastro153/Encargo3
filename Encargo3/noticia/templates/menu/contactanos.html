@@ -11,10 +11,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
+                {% if mensaje %}
+                <div class="alert alert-{{ alerta_tipo }} alert-dismissible fade show" role="alert">
+                    {{ mensaje }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endif %}
                 <div class="section-title mb-0">
                     <h4 class="m-0 text-uppercase font-weight-bold">¡Contactanos!</h4>
                 </div>
-                <div class="bg-white border border-top-0 p-4 mb-3">
+                <div id="contact-form" class="bg-white border border-top-0 p-4 mb-3">
                     <div class="mb-4">
                         <h6 class="text-uppercase font-weight-bold">Informacion de contacto</h6>
                         <p class="mb-4">Aquí puedes encontrar todas las formas de contacto con NewsCL. Queremos facilitar tu comunicación con nosotros, ya sea que tengas una consulta, comentario o sugerencia. Nos esforzamos en mantener una relación abierta y accesible con nuestros lectores y valoramos cada una de tus opiniones.</p>
@@ -42,14 +50,6 @@
                         </div>
                     </div>
                     <h6 class="text-uppercase font-weight-bold mb-3">Tambien puedes enviar un ticket:</h6>
-                    {% if mensaje %}
-                    <div class="alert alert-{{ alerta_tipo }} alert-dismissible fade show" role="alert">
-                        {{ mensaje }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    {% endif %}
                     <form action="{% url 'contactanos' %}" method="post">
                         {% csrf_token %}
                         <div class="form-row">
@@ -136,4 +136,14 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.querySelector('.alert')) {
+            document.querySelector('.alert').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
 {% endblock %}
